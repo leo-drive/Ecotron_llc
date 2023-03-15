@@ -70,6 +70,17 @@ case 'CommandMessage'
     ECOCAN.CommandMessage.fields{4}.multiplex_type = 'Standard';
     ECOCAN.CommandMessage.fields{4}.multiplex_value = 0;
 
+    ECOCAN.CommandMessage.fields{5}.name = 'Calibroasyon_Command';
+    ECOCAN.CommandMessage.fields{5}.units = '-';
+    ECOCAN.CommandMessage.fields{5}.start_bit = 56;
+    ECOCAN.CommandMessage.fields{5}.bit_length = 8;
+    ECOCAN.CommandMessage.fields{5}.byte_order = 'LITTLE_ENDIAN';
+    ECOCAN.CommandMessage.fields{5}.data_type = 'UNSIGNED';
+    ECOCAN.CommandMessage.fields{5}.scale = 1;
+    ECOCAN.CommandMessage.fields{5}.offset = 0;
+    ECOCAN.CommandMessage.fields{5}.multiplex_type = 'Standard';
+    ECOCAN.CommandMessage.fields{5}.multiplex_value = 0;
+
 
 %%
 %Network Node:Vector__XXX
@@ -151,16 +162,27 @@ case 'FeedbackMsg3'
     ECOCAN.FeedbackMsg3.fields{6}.multiplex_type = 'Standard';
     ECOCAN.FeedbackMsg3.fields{6}.multiplex_value = 0;
 
-    ECOCAN.FeedbackMsg3.fields{7}.name = 'unused';
+    ECOCAN.FeedbackMsg3.fields{7}.name = 'Calibration_Status';
     ECOCAN.FeedbackMsg3.fields{7}.units = '-';
-    ECOCAN.FeedbackMsg3.fields{7}.start_bit = 8;
-    ECOCAN.FeedbackMsg3.fields{7}.bit_length = 8;
+    ECOCAN.FeedbackMsg3.fields{7}.start_bit = 6;
+    ECOCAN.FeedbackMsg3.fields{7}.bit_length = 1;
     ECOCAN.FeedbackMsg3.fields{7}.byte_order = 'LITTLE_ENDIAN';
     ECOCAN.FeedbackMsg3.fields{7}.data_type = 'UNSIGNED';
     ECOCAN.FeedbackMsg3.fields{7}.scale = 1;
     ECOCAN.FeedbackMsg3.fields{7}.offset = 0;
     ECOCAN.FeedbackMsg3.fields{7}.multiplex_type = 'Standard';
     ECOCAN.FeedbackMsg3.fields{7}.multiplex_value = 0;
+
+    ECOCAN.FeedbackMsg3.fields{8}.name = 'Calib_Command_feedback';
+    ECOCAN.FeedbackMsg3.fields{8}.units = '-';
+    ECOCAN.FeedbackMsg3.fields{8}.start_bit = 7;
+    ECOCAN.FeedbackMsg3.fields{8}.bit_length = 1;
+    ECOCAN.FeedbackMsg3.fields{8}.byte_order = 'LITTLE_ENDIAN';
+    ECOCAN.FeedbackMsg3.fields{8}.data_type = 'UNSIGNED';
+    ECOCAN.FeedbackMsg3.fields{8}.scale = 1;
+    ECOCAN.FeedbackMsg3.fields{8}.offset = 0;
+    ECOCAN.FeedbackMsg3.fields{8}.multiplex_type = 'Standard';
+    ECOCAN.FeedbackMsg3.fields{8}.multiplex_value = 0;
 
 
 %%
