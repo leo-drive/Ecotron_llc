@@ -1,24 +1,62 @@
 function msg = LeoDrive_vw_GOLF(msgname,type)
   if(255==type)
   msg = struct;
-  msg.num=9;
+  msg.num=10;
   msg.list= cell(1, msg.num);
-  msg.list{1}='VehicleErrors';
-  msg.list{2}='motor_info';
-  msg.list{3}='MotionInfo';
-  msg.list{4}='VehicleSignalStatus';
-  msg.list{5}='VehicleDynamicsInfo';
-  msg.list{6}='FrontWheelCommands';
-  msg.list{7}='VehicleCommands';
-  msg.list{8}='LongitudinalCommandsV2';
-  msg.list{9}='LongitudinalCommandsV1';
+  msg.list{1}='Drive_Feedback';
+  msg.list{2}='VehicleErrors';
+  msg.list{3}='motor_info';
+  msg.list{4}='MotionInfo';
+  msg.list{5}='VehicleSignalStatus';
+  msg.list{6}='VehicleDynamicsInfo';
+  msg.list{7}='FrontWheelCommands';
+  msg.list{8}='VehicleCommands';
+  msg.list{9}='LongitudinalCommandsV2';
+  msg.list{10}='LongitudinalCommandsV1';
   else 
   msg = struct;
   switch msgname 
 %%
 %Network Node:Vector__XXX
-%Message Name:VehicleErrors
+%Message Name:Drive_Feedback
 %Message Number:1
+case 'Drive_Feedback'
+    ECOCAN.Drive_Feedback = struct;
+    ECOCAN.Drive_Feedback.name = 'Drive_Feedback';
+    ECOCAN.Drive_Feedback.description = 'Drive_Feedback';
+    ECOCAN.Drive_Feedback.protocol  = 'ECOCAN';
+    ECOCAN.Drive_Feedback.id = hex2dec('416');
+    ECOCAN.Drive_Feedback.idext = 'STANDARD';
+    ECOCAN.Drive_Feedback.payload_size =8;
+    ECOCAN.Drive_Feedback.interval =-1;
+
+    ECOCAN.Drive_Feedback.fields{1}.name = 'Throttle_Pos';
+    ECOCAN.Drive_Feedback.fields{1}.units = '%';
+    ECOCAN.Drive_Feedback.fields{1}.start_bit = 0;
+    ECOCAN.Drive_Feedback.fields{1}.bit_length = 8;
+    ECOCAN.Drive_Feedback.fields{1}.byte_order = 'LITTLE_ENDIAN';
+    ECOCAN.Drive_Feedback.fields{1}.data_type = 'UNSIGNED';
+    ECOCAN.Drive_Feedback.fields{1}.scale = 0.4;
+    ECOCAN.Drive_Feedback.fields{1}.offset = 0;
+    ECOCAN.Drive_Feedback.fields{1}.multiplex_type = 'Standard';
+    ECOCAN.Drive_Feedback.fields{1}.multiplex_value = 0;
+
+    ECOCAN.Drive_Feedback.fields{2}.name = 'Brake_Pos';
+    ECOCAN.Drive_Feedback.fields{2}.units = '%';
+    ECOCAN.Drive_Feedback.fields{2}.start_bit = 8;
+    ECOCAN.Drive_Feedback.fields{2}.bit_length = 8;
+    ECOCAN.Drive_Feedback.fields{2}.byte_order = 'LITTLE_ENDIAN';
+    ECOCAN.Drive_Feedback.fields{2}.data_type = 'UNSIGNED';
+    ECOCAN.Drive_Feedback.fields{2}.scale = 1;
+    ECOCAN.Drive_Feedback.fields{2}.offset = 0;
+    ECOCAN.Drive_Feedback.fields{2}.multiplex_type = 'Standard';
+    ECOCAN.Drive_Feedback.fields{2}.multiplex_value = 0;
+
+
+%%
+%Network Node:Vector__XXX
+%Message Name:VehicleErrors
+%Message Number:2
 case 'VehicleErrors'
     ECOCAN.VehicleErrors = struct;
     ECOCAN.VehicleErrors.name = 'VehicleErrors';
@@ -187,7 +225,7 @@ case 'VehicleErrors'
 %%
 %Network Node:Vector__XXX
 %Message Name:motor_info
-%Message Number:2
+%Message Number:3
 case 'motor_info'
     ECOCAN.motor_info = struct;
     ECOCAN.motor_info.name = 'motor_info';
@@ -235,7 +273,7 @@ case 'motor_info'
 %%
 %Network Node:Vector__XXX
 %Message Name:MotionInfo
-%Message Number:3
+%Message Number:4
 case 'MotionInfo'
     ECOCAN.MotionInfo = struct;
     ECOCAN.MotionInfo.name = 'MotionInfo';
@@ -338,7 +376,7 @@ case 'MotionInfo'
 %%
 %Network Node:Vector__XXX
 %Message Name:VehicleSignalStatus
-%Message Number:4
+%Message Number:5
 case 'VehicleSignalStatus'
     ECOCAN.VehicleSignalStatus = struct;
     ECOCAN.VehicleSignalStatus.name = 'VehicleSignalStatus';
@@ -350,7 +388,7 @@ case 'VehicleSignalStatus'
     ECOCAN.VehicleSignalStatus.interval =-1;
 
     ECOCAN.VehicleSignalStatus.fields{1}.name = 'fuel';
-    ECOCAN.VehicleSignalStatus.fields{1}.units = '-';
+    ECOCAN.VehicleSignalStatus.fields{1}.units = 'liter';
     ECOCAN.VehicleSignalStatus.fields{1}.start_bit = 0;
     ECOCAN.VehicleSignalStatus.fields{1}.bit_length = 8;
     ECOCAN.VehicleSignalStatus.fields{1}.byte_order = 'LITTLE_ENDIAN';
@@ -441,7 +479,7 @@ case 'VehicleSignalStatus'
 %%
 %Network Node:Vector__XXX
 %Message Name:VehicleDynamicsInfo
-%Message Number:5
+%Message Number:6
 case 'VehicleDynamicsInfo'
     ECOCAN.VehicleDynamicsInfo = struct;
     ECOCAN.VehicleDynamicsInfo.name = 'VehicleDynamicsInfo';
@@ -478,7 +516,7 @@ case 'VehicleDynamicsInfo'
 %%
 %Network Node:Vector__XXX
 %Message Name:FrontWheelCommands
-%Message Number:6
+%Message Number:7
 case 'FrontWheelCommands'
     ECOCAN.FrontWheelCommands = struct;
     ECOCAN.FrontWheelCommands.name = 'FrontWheelCommands';
@@ -515,7 +553,7 @@ case 'FrontWheelCommands'
 %%
 %Network Node:Vector__XXX
 %Message Name:VehicleCommands
-%Message Number:7
+%Message Number:8
 case 'VehicleCommands'
     ECOCAN.VehicleCommands = struct;
     ECOCAN.VehicleCommands.name = 'VehicleCommands';
@@ -592,7 +630,7 @@ case 'VehicleCommands'
     ECOCAN.VehicleCommands.fields{6}.multiplex_type = 'Standard';
     ECOCAN.VehicleCommands.fields{6}.multiplex_value = 0;
 
-    ECOCAN.VehicleCommands.fields{7}.name = 'horn';
+    ECOCAN.VehicleCommands.fields{7}.name = 'TakeoverRequest';
     ECOCAN.VehicleCommands.fields{7}.units = '-';
     ECOCAN.VehicleCommands.fields{7}.start_bit = 48;
     ECOCAN.VehicleCommands.fields{7}.bit_length = 8;
@@ -618,7 +656,7 @@ case 'VehicleCommands'
 %%
 %Network Node:Vector__XXX
 %Message Name:LongitudinalCommandsV2
-%Message Number:8
+%Message Number:9
 case 'LongitudinalCommandsV2'
     ECOCAN.LongitudinalCommandsV2 = struct;
     ECOCAN.LongitudinalCommandsV2.name = 'LongitudinalCommandsV2';
@@ -655,7 +693,7 @@ case 'LongitudinalCommandsV2'
 %%
 %Network Node:Vector__XXX
 %Message Name:LongitudinalCommandsV1
-%Message Number:9
+%Message Number:10
 case 'LongitudinalCommandsV1'
     ECOCAN.LongitudinalCommandsV1 = struct;
     ECOCAN.LongitudinalCommandsV1.name = 'LongitudinalCommandsV1';
