@@ -1,0 +1,58 @@
+%function FcnLoadCodeIRInfo() Output 
+codeIRInfoStruct = load('D:\GitKraken\Ecotron_llc\LeoDrive-Low_level_controller\steer map\Ecotron_MPC5644A_rtw\tlc\codeIRInfo.mat');
+codeInfo = codeIRInfoStruct.codeInfo;
+%endfunction
+
+%function FcnGetIsInheritedSampleTime() void
+%assign tmpIdx = 0
+%return tmpIdx 
+%endfunction
+
+%function FcnGetUnsetDSMIdxFromIRInfo() void
+%assign tmpIdx = []
+%return tmpIdx 
+%endfunction
+
+%function FcnGetUnsetEIIdxFromIRInfo() void
+%assign tmpIdx = []
+%return tmpIdx 
+%endfunction
+
+%function FcnGetRootInportsMapFromIRInfo() void
+%assign tmpIdx = []
+%return tmpIdx 
+%endfunction
+
+%function FcnGetUnsetEOIdxFromIRInfo() void
+%assign tmpIdx = []
+%return tmpIdx 
+%endfunction
+
+%function FcnGetUnsetParamIdxFromIRInfo() void
+%assign tmpIdx = Matrix(65,2)[[257, 0]; [258, 1]; [259, 2]; [260, 3]; ...
+[261, 4]; [262, 5]; [263, 6]; [264, 7]; [265, 8]; ...
+[266, 9]; [267, 10]; [268, 11]; [269, 12]; [270, 13]; ...
+[271, 14]; [272, 15]; [273, 16]; [274, 17]; [275, 18]; ...
+[276, 19]; [277, 20]; [278, 21]; [279, 22]; [280, 23]; ...
+[281, 24]; [282, 25]; [283, 26]; [284, 27]; [285, 28]; ...
+[286, 29]; [287, 30]; [288, 31]; [289, 32]; [290, 33]; ...
+[291, 34]; [292, 35]; [293, 36]; [294, 37]; [295, 38]; ...
+[296, 39]; [297, 40]; [298, 41]; [299, 42]; [300, 43]; ...
+[301, 44]; [302, 45]; [303, 46]; [304, 47]; [305, 48]; ...
+[306, 49]; [307, 50]; [308, 51]; [309, 52]; [310, 53]; ...
+[311, 54]; [312, 55]; [313, 56]; [314, 57]; [315, 58]; ...
+[316, 59]; [317, 60]; [318, 61]; [319, 62]; [320, 63]; ...
+[321, 64]; ]
+%return tmpIdx 
+%endfunction
+
+%function FcnGetArSharedParamIdxFromIRInfo() void
+%assign tmpIdx = []
+%return tmpIdx 
+%endfunction
+
+%function FcnGetInstanceSpecificParamIdxFromIRInfo() void
+%assign tmpIdx = []
+%return tmpIdx 
+%endfunction
+

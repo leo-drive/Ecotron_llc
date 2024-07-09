@@ -1,0 +1,77 @@
+%implements s86_b0_mueri_ModuleConstants "C"
+
+%function ModuleConstants(block) Output
+
+
+/* Named constants for Chart: '<S228>/Chart' */
+#define IN_NO_ACTIVE_CHILD ((uint8_T)0U)
+#define IN_init ((uint8_T)1U)
+#define IN_trigger ((uint8_T)2U)
+
+/* Named constants for Chart: '<S228>/Chart1' */
+#define IN_high ((uint8_T)1U)
+#define IN_high1 ((uint8_T)2U)
+#define IN_high2 ((uint8_T)3U)
+#define IN_high3 ((uint8_T)4U)
+#define IN_high4 ((uint8_T)5U)
+#define IN_high5 ((uint8_T)6U)
+#define IN_init_d ((uint8_T)7U)
+#define IN_low ((uint8_T)8U)
+#define IN_low1 ((uint8_T)9U)
+#define IN_low2 ((uint8_T)10U)
+#define IN_low3 ((uint8_T)11U)
+#define IN_low4 ((uint8_T)12U)
+#define IN_low5 ((uint8_T)13U)
+
+/* Named constants for Chart: '<S195>/Chart' */
+#define IN_Fast ((uint8_T)1U)
+#define IN_Manual ((uint8_T)1U)
+#define IN_Otonom ((uint8_T)2U)
+#define IN_Slow ((uint8_T)2U)
+#define IN_mod1 ((uint8_T)3U)
+#define IN_reset ((uint8_T)4U)
+#define IN_set ((uint8_T)5U)
+
+/* Named constants for Chart: '<S242>/Chart1' */
+#define IN_Move ((uint8_T)1U)
+#define IN_StopMode ((uint8_T)2U)
+
+/* Named constants for Chart: '<S240>/Chart' */
+#define IN_SetCalibCMD ((uint8_T)1U)
+#define IN_init_b ((uint8_T)2U)
+
+/* Named constants for Chart: '<S197>/Chart' */
+#define IN_Autonomous ((uint8_T)1U)
+#define IN_Manual_g ((uint8_T)2U)
+
+/* Named constants for Chart: '<S198>/Chart' */
+#define IN_Brake ((uint8_T)1U)
+#define IN_DBW ((uint8_T)2U)
+#define IN_EPAS ((uint8_T)3U)
+#define IN_GNSS ((uint8_T)4U)
+#define IN_LIDARS ((uint8_T)5U)
+#define IN_Modem ((uint8_T)6U)
+#define IN_Shutdown ((uint8_T)1U)
+#define IN_Startup ((uint8_T)2U)
+#define IN_VLS128 ((uint8_T)7U)
+#define IN_start ((uint8_T)3U)
+
+/* Named constants for Chart: '<S437>/Chart' */
+#define IN_HazardOFF ((uint8_T)1U)
+#define IN_HazardON ((uint8_T)2U)
+#define IN_Reset ((uint8_T)1U)
+#define IN_Set ((uint8_T)2U)
+#define IN_init_h ((uint8_T)3U)
+
+/* Named constants for Chart: '<S459>/Chart' */
+#define IN_FallingBuzz ((uint8_T)1U)
+#define IN_NoBuzz ((uint8_T)2U)
+#define IN_OFF ((uint8_T)1U)
+#define IN_ON ((uint8_T)2U)
+#define IN_risingBuzz ((uint8_T)3U)
+
+/* Named constants for Chart: '<S440>/Chart' */
+#define IN_Hazard ((uint8_T)1U)
+#define IN_left ((uint8_T)3U)
+#define IN_right ((uint8_T)4U)
+%endfunction

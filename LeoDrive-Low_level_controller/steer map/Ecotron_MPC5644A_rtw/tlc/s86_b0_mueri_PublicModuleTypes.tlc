@@ -1,0 +1,36 @@
+%implements s86_b0_mueri_PublicModuleTypes "C"
+
+%function PublicModuleTypes(block) Output
+
+#ifndef typedef_e_dsp_private_SlidingWindowAver
+#define typedef_e_dsp_private_SlidingWindowAver
+typedef struct
+{
+    int32_T isInitialized;
+    boolean_T isSetupComplete;
+    real32_T pCumSum;
+    real32_T pCumSumRev[199];
+    real32_T pCumRevIndex;
+} e_dsp_private_SlidingWindowAver;
+#endif /*typedef_e_dsp_private_SlidingWindowAver*/
+#ifndef typedef_c_cell_wrap
+#define typedef_c_cell_wrap
+typedef struct
+{
+    uint32_T f1[8];
+} c_cell_wrap;
+#endif /*typedef_c_cell_wrap*/
+#ifndef typedef_dsp_simulink_MovingAverage
+#define typedef_dsp_simulink_MovingAverage
+typedef struct
+{
+    boolean_T matlabCodegenIsDeleted;
+    int32_T isInitialized;
+    boolean_T isSetupComplete;
+    boolean_T TunablePropsChanged;
+    c_cell_wrap inputVarSize;
+    e_dsp_private_SlidingWindowAver *pStatistic;
+    int32_T NumChannels;
+} dsp_simulink_MovingAverage;
+#endif /*typedef_dsp_simulink_MovingAverage*/
+%endfunction

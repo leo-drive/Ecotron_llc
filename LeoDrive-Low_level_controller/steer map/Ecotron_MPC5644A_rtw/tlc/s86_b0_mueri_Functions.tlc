@@ -1,0 +1,159 @@
+%implements s86_b0_mueri_Functions "C"
+
+%function init_Fcn0(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+/*@>178c4b*/B_n./*@>192ff9*/PtoNTrigger/*@>4246*/ = /*@>13c692*/0.0;
+/*@>178c51*/B_n./*@>192ffc*/PtoDTrigger/*@>4242*/ = /*@>13c68f*/0.0;
+/*@>178c57*/B_n./*@>192fff*/RtoNTrigger/*@>423e*/ = /*@>13c68c*/0.0;
+/*@>178c5d*/B_n./*@>193002*/NtoRTrigger/*@>423a*/ = /*@>13c689*/0.0;
+/*@>178c63*/B_n./*@>193005*/NtoDTrigger/*@>4236*/ = /*@>13c686*/0.0;
+/*@>178c69*/B_n./*@>193008*/DtoNTrigger/*@>4232*/ = /*@>13c683*/0.0;
+if (/*@>178c6f*/B_n./*@>19300b*/ReadCANMessage_o1_l/*@>f0a46*/ && (%<SLibCG_DumpSSCode("/*@[1835f9*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a49*/ != %<SLibCG_DumpSSCode("/*@[1835dd*/",(SLibCG_SE(SLibCG_BOCSC(86, 1, "", -1, "", 0))),"/*@]*/")>)/*@>f0a45*/ && (%<SLibCG_DumpSSCode("/*@[1835c1*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a50*/ != /*@>13c6d1*/1)/*@>f0a44*/ && (%<SLibCG_DumpSSCode("/*@[1835a5*/",(SLibCG_SE(SLibCG_BOCSC(50, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a55*/ == /*@>13c6d4*/1.0F)) {
+    if ((%<SLibCG_DumpSSCode("/*@[183631*/",(SLibCG_SE(SLibCG_BOCSC(86, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a5c*/ == /*@>13c6d7*/3)/*@>f0a5b*/ && (%<SLibCG_DumpSSCode("/*@[183615*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a61*/ == /*@>13c6da*/2)) {
+        /*@>17a07f*/DW_l./*@>193032*/is_c1_Ecotron/*@>38e2*/ = /*@>13c665*/IN_high3;
+        /*@>17a08b*/DW_l./*@>193038*/temporalCounter_i1_n/*@>38f0*/ = /*@>13c6c3*/0U;
+        /*@>178c75*/B_n./*@>19300e*/NtoRTrigger/*@>5de1*/ = /*@>13c695*/1.0;
+        /*@>178c81*/B_n./*@>193014*/cnt/*@>192f4d*/++;
+    } else if ((%<SLibCG_DumpSSCode("/*@[183669*/",(SLibCG_SE(SLibCG_BOCSC(86, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a69*/ == /*@>13c6dd*/1)/*@>f0a68*/ && (%<SLibCG_DumpSSCode("/*@[18364d*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a6e*/ == /*@>13c6e0*/4)) {
+        /*@>17a085*/DW_l./*@>193035*/is_c1_Ecotron/*@>38ea*/ = /*@>13c668*/IN_high1;
+        /*@>17a097*/DW_l./*@>19303e*/temporalCounter_i1_n/*@>38fe*/ = /*@>13c6c4*/0U;
+        /*@>178c7b*/B_n./*@>193011*/PtoDTrigger/*@>5e10*/ = /*@>13c69d*/1.0;
+        /*@>178c93*/B_n./*@>19301a*/cnt/*@>192f4e*/++;
+    } else if ((%<SLibCG_DumpSSCode("/*@[1836bd*/",(SLibCG_SE(SLibCG_BOCSC(86, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a76*/ == /*@>13c6e3*/1)/*@>f0a75*/ && ((%<SLibCG_DumpSSCode("/*@[1836a1*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a7c*/ == /*@>13c6e6*/3)/*@>f0a7b*/ || (%<SLibCG_DumpSSCode("/*@[183685*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a81*/ == /*@>13c6e9*/2))) {
+        /*@>17a091*/DW_l./*@>19303b*/is_c1_Ecotron/*@>38f8*/ = /*@>13c66d*/IN_high;
+        /*@>17a0a3*/DW_l./*@>193044*/temporalCounter_i1_n/*@>390c*/ = /*@>13c6c5*/0U;
+        /*@>178c8d*/B_n./*@>193017*/PtoNTrigger/*@>5e3f*/ = /*@>13c6a5*/1.0;
+        /*@>178ca5*/B_n./*@>193020*/cnt/*@>192f4f*/++;
+    } else if ((%<SLibCG_DumpSSCode("/*@[183711*/",(SLibCG_SE(SLibCG_BOCSC(86, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a89*/ == /*@>13c6ec*/2)/*@>f0a88*/ && ((%<SLibCG_DumpSSCode("/*@[1836f5*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a8f*/ == /*@>13c6ef*/3)/*@>f0a8e*/ || (%<SLibCG_DumpSSCode("/*@[1836d9*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a94*/ == /*@>13c6f2*/4))) {
+        /*@>17a09d*/DW_l./*@>193041*/is_c1_Ecotron/*@>3906*/ = /*@>13c672*/IN_high2;
+        /*@>17a0af*/DW_l./*@>19304a*/temporalCounter_i1_n/*@>391d*/ = /*@>13c6c6*/0U;
+        /*@>178c9f*/B_n./*@>19301d*/RtoNTrigger/*@>5e6e*/ = /*@>13c6ad*/1.0;
+        /*@>178cb7*/B_n./*@>193026*/cnt/*@>192f50*/++;
+    } else if ((%<SLibCG_DumpSSCode("/*@[183749*/",(SLibCG_SE(SLibCG_BOCSC(86, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0a9c*/ == /*@>13c6f5*/3)/*@>f0a9b*/ && (%<SLibCG_DumpSSCode("/*@[18372d*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0aa1*/ == /*@>13c6f8*/4)) {
+        /*@>17a0a9*/DW_l./*@>193047*/is_c1_Ecotron/*@>3917*/ = /*@>13c677*/IN_high4;
+        /*@>17a0bb*/DW_l./*@>193050*/temporalCounter_i1_n/*@>392a*/ = /*@>13c6c7*/0U;
+        /*@>178cb1*/B_n./*@>193023*/NtoDTrigger/*@>5e9d*/ = /*@>13c6b5*/1.0;
+        /*@>178cc9*/B_n./*@>19302c*/cnt/*@>192f51*/++;
+    } else {
+        if ((%<SLibCG_DumpSSCode("/*@[18379d*/",(SLibCG_SE(SLibCG_BOCSC(86, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0aa9*/ == /*@>13c6fb*/4)/*@>f0aa8*/ && ((%<SLibCG_DumpSSCode("/*@[183781*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0aaf*/ == /*@>13c6fe*/2)/*@>f0aae*/ || (%<SLibCG_DumpSSCode("/*@[183765*/",(SLibCG_SE(SLibCG_BOCSC(107, 1, "", -1, "", 0))),"/*@]*/")>/*@>f0ab4*/ == /*@>13c701*/3))) {
+            /*@>17a0b5*/DW_l./*@>19304d*/is_c1_Ecotron/*@>3924*/ = /*@>13c67c*/IN_high5;
+            /*@>17a0c1*/DW_l./*@>193053*/temporalCounter_i1_n/*@>3933*/ = /*@>13c6c8*/0U;
+            /*@>178cc3*/B_n./*@>193029*/DtoNTrigger/*@>5ecc*/ = /*@>13c6bd*/1.0;
+            /*@>178cd5*/B_n./*@>19302f*/cnt/*@>192f52*/++;
+        }
+    }
+}
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void init(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(3, 0, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function SystemCore_release_Fcn1(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+e_dsp_private_SlidingWindowAver *obj_0;
+/*@>5504c*/if ((/*@>13c705*/obj->isInitialized/*@>55137*/ == /*@>13c708*/1)/*@>167c7e*/ && /*@>13c717*/obj->isSetupComplete) {
+    /*@>13c70d*/obj_0/*@>600f6*/ = /*@>13c719*/obj->pStatistic;
+    /*@>6010d*/if (/*@>13c70f*/obj_0->isInitialized/*@>6010b*/ == /*@>13c715*/1) {
+        /*@>13c712*/obj_0->/*@>19308e*/isInitialized/*@>60105*/ = /*@>19305d*/2;
+    }
+    /*@>13c71b*/obj->/*@>19308b*/NumChannels/*@>600de*/ = /*@>193060*/-1;
+}
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void SystemCore_release(\
+%assign comma = ""
+%<comma>dsp_simulink_MovingAverage *obj\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(3, 1, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function SystemCore_delete_Fcn2(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign _modelSS = ""
+
+%if SLibCG_FcnCallArgAccessed(3,2,0,0)
+%<SLibCG_AccessArg(3 ,2, 0)>
+%endif
+
+%<SLibCG_DumpSSCode("/*@[1884cb*/",(SLibCGCallSubFcn("SystemCore_release", ["/*@>1930cf*/obj"], 3, 2, 0)),"/*@]*/")>;
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void SystemCore_delete(\
+%assign comma = ""
+%<comma>dsp_simulink_MovingAverage *obj\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(3, 2, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function matlabCodegenHandle_matlabCodeg_Fcn3(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign _modelSS = ""
+
+%if SLibCG_FcnCallArgAccessed(3,3,0,0)
+%<SLibCG_AccessArg(3 ,3, 0)>
+%endif
+
+/*@>556a0*/if (!/*@<5570e*//*@>13c723*/obj->matlabCodegenIsDeleted) {
+    /*@>13c726*/obj->/*@>1930fb*/matlabCodegenIsDeleted/*@>556ba*/ = /*@>13c729*/true;
+    %<SLibCG_DumpSSCode("/*@[1884e2*/",(SLibCGCallSubFcn("SystemCore_delete", ["/*@>19310d*/obj"], 3, 3, 0)),"/*@]*/")>;
+}
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void matlabCodegenHandle_matlabCodeg(\
+%assign comma = ""
+%<comma>dsp_simulink_MovingAverage *obj\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(3, 3, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function TestInterfaceFcn_Fcn4(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void TestInterfaceFcn(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(3, 4, fcnProtoType)>
+%return fcnBuff
+%endfunction
+

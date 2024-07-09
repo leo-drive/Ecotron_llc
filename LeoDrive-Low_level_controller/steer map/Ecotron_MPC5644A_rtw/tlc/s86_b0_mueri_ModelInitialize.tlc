@@ -1,0 +1,260 @@
+%implements s86_b0_mueri_ModelInitialize "C"
+
+%function ModelInitialize(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcStartFcnOfS86B0 = OpaqueTLCBlockFcn("Start", 86, 0, 3, 15, 0)
+%assign tlcStartFcnOfS86B57 = OpaqueTLCBlockFcn("Start", 86, 57, 3, 15, 1)
+%assign tlcStartFcnOfS86B61 = OpaqueTLCBlockFcn("Start", 86, 61, 3, 15, 2)
+%assign tlcStartFcnOfS86B65 = OpaqueTLCBlockFcn("Start", 86, 65, 3, 15, 3)
+%assign tlcStartFcnOfS86B69 = OpaqueTLCBlockFcn("Start", 86, 69, 3, 15, 4)
+%assign tlcStartFcnOfS86B73 = OpaqueTLCBlockFcn("Start", 86, 73, 3, 15, 5)
+%assign tlcStartFcnOfS86B82 = OpaqueTLCBlockFcn("Start", 86, 82, 3, 15, 6)
+%assign tlcStartFcnOfS86B83 = OpaqueTLCBlockFcn("Start", 86, 83, 3, 15, 7)
+%assign tlcStartFcnOfS86B106 = OpaqueTLCBlockFcn("Start", 86, 106, 3, 15, 8)
+%assign tlcStartFcnOfS47B0 = OpaqueTLCBlockFcn("Start", 47, 0, 3, 15, 9)
+%assign tlcStartFcnOfS48B0 = OpaqueTLCBlockFcn("Start", 48, 0, 3, 15, 10)
+%assign tlcStartFcnOfS46B0 = OpaqueTLCBlockFcn("Start", 46, 0, 3, 15, 11)
+%assign tlcStartFcnOfS86B142 = OpaqueTLCBlockFcn("Start", 86, 142, 3, 15, 12)
+%assign tlcStartFcnOfS86B144 = OpaqueTLCBlockFcn("Start", 86, 144, 3, 15, 13)
+%assign tlcStartFcnOfS86B145 = OpaqueTLCBlockFcn("Start", 86, 145, 3, 15, 14)
+%assign tlcStartFcnOfS86B151 = OpaqueTLCBlockFcn("Start", 86, 151, 3, 15, 15)
+%assign tlcStartFcnOfS86B170 = OpaqueTLCBlockFcn("Start", 86, 170, 3, 15, 16)
+%<SLibInsertAsyncTaskInitializeCode(system)>
+%<SLibWriteMachineInitialize()>
+%<SLibCGIRDumpSystemUserCode(86, "Start", "Header")>\
+%<SLibCGIRDumpSystemUserCode(86, "Start", "Body")>\
+%if !WHITE_SPACE(tlcStartFcnOfS86B0)
+/* {S!d4895}Start for S-Function (EcoCoder_Task): '<S4>/Task_Call' */
+%<SLibCG_DumpSSCode("/*@[186dd1*/",tlcStartFcnOfS86B0,"/*@]*/")>\
+/* {E!d4895}End of Start for S-Function (EcoCoder_Task): '<S4>/Task_Call' */
+
+%endif
+/* {S!d4914}Start for MATLABSystem: '<S244>/Moving Average1' */
+/*@>179eb7*/DW_l./*@>1975d9*/obj./*@>1975a9*/matlabCodegenIsDeleted/*@>c69f4*/ = /*@>13c489*/true;
+/*@>179ebd*/DW_l./*@>1975dc*/obj./*@>1975a0*/isInitialized/*@>c6ae7*/ = /*@>197312*/0;
+/*@>179ec3*/DW_l./*@>1975df*/obj./*@>1975a3*/NumChannels/*@>c6a9c*/ = /*@>197315*/-1;
+/*@>179ec9*/DW_l./*@>1975e2*/obj./*@>1975a6*/matlabCodegenIsDeleted/*@>c6a7e*/ = /*@>13c484*/false;
+/*@>179ecf*/DW_l./*@>1975e5*/objisempty/*@>c6a62*/ = /*@>13c486*/true;
+/*@>179ed5*/DW_l./*@>1975e8*/obj./*@>19759d*/isSetupComplete/*@>c6b0b*/ = /*@>13c47b*/false;
+/*@>179edb*/DW_l./*@>1975eb*/obj./*@>19759a*/isInitialized/*@>c6b0f*/ = /*@>197318*/1;
+/*@>179ee1*/DW_l./*@>1975ee*/obj./*@>197591*/NumChannels/*@>c6b80*/ = /*@>19731b*/1;
+/*@>179ee7*/DW_l./*@>1975f1*/gobj_0./*@>19758b*/isInitialized/*@>c6c5e*/ = /*@>19731e*/0;
+/*@>179eed*/DW_l./*@>1975f4*/obj./*@>19758e*/pStatistic/*@>c6b84*/ = &/*@>179ef3*/DW_l./*@>1975f7*/gobj_0;
+/*@>179ef9*/DW_l./*@>1975fa*/obj./*@>197597*/isSetupComplete/*@>c6b27*/ = /*@>13c47a*/true;
+/*@>179eff*/DW_l./*@>1975fd*/obj./*@>197594*/TunablePropsChanged/*@>c6b2d*/ = /*@>13c479*/false;
+/* {S!d4916}Start for MATLABSystem: '<S244>/Moving Average2' */
+/*@>179f05*/DW_l./*@>197600*/obj_k./*@>197588*/matlabCodegenIsDeleted/*@>c6cb3*/ = /*@>13c46f*/true;
+/*@>179f0b*/DW_l./*@>197603*/obj_k./*@>19756d*/isInitialized/*@>c6ec5*/ = /*@>197321*/0;
+/*@>179f11*/DW_l./*@>197606*/obj_k./*@>197570*/NumChannels/*@>c6dfe*/ = /*@>197324*/-1;
+/*@>179f17*/DW_l./*@>197609*/obj_k./*@>197585*/matlabCodegenIsDeleted/*@>c6d3d*/ = /*@>13c46a*/false;
+/*@>179f1d*/DW_l./*@>19760c*/objisempty_i/*@>c6d21*/ = /*@>13c46c*/true;
+/*@>179f23*/DW_l./*@>19760f*/obj_k./*@>197582*/isSetupComplete/*@>c6d46*/ = /*@>13c465*/false;
+/*@>179f29*/DW_l./*@>197612*/obj_k./*@>19757f*/isInitialized/*@>c6d4a*/ = /*@>197327*/1;
+/*@>179f2f*/DW_l./*@>197615*/obj_k./*@>197576*/NumChannels/*@>c6ddb*/ = /*@>19732a*/1;
+/*@>179f35*/DW_l./*@>197618*/gobj_0_a./*@>19756a*/isInitialized/*@>c6f28*/ = /*@>19732d*/0;
+/*@>179f3b*/DW_l./*@>19761b*/obj_k./*@>197573*/pStatistic/*@>c6ddf*/ = &/*@>179f41*/DW_l./*@>19761e*/gobj_0_a;
+/*@>179f47*/DW_l./*@>197621*/obj_k./*@>19757c*/isSetupComplete/*@>c6d62*/ = /*@>13c464*/true;
+/*@>179f4d*/DW_l./*@>197624*/obj_k./*@>197579*/TunablePropsChanged/*@>c6d68*/ = /*@>13c463*/false;
+%if !WHITE_SPACE(tlcStartFcnOfS86B57)
+/* {S!d4918}Start for S-Function (DIO_Out): '<S437>/Hazard_Light' */
+%<SLibCG_DumpSSCode("/*@[186dd3*/",tlcStartFcnOfS86B57,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B61)
+/* {S!d4920}Start for S-Function (DIO_Out): '<S437>/HeadLight_Flasher' */
+%<SLibCG_DumpSSCode("/*@[186dd5*/",tlcStartFcnOfS86B61,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B65)
+/* {S!d4922}Start for S-Function (DIO_Out): '<S437>/High_Beam' */
+%<SLibCG_DumpSSCode("/*@[186dd7*/",tlcStartFcnOfS86B65,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B69)
+/* {S!d4924}Start for S-Function (DIO_Out): '<S437>/Left_Blinker' */
+%<SLibCG_DumpSSCode("/*@[186dd9*/",tlcStartFcnOfS86B69,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B73)
+/* {S!d4926}Start for S-Function (DIO_Out): '<S437>/Right_Blinker' */
+%<SLibCG_DumpSSCode("/*@[186ddb*/",tlcStartFcnOfS86B73,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B82)
+/* {S!d4928}Start for S-Function (DIO_Out): '<S437>/Switch Output' */
+%<SLibCG_DumpSSCode("/*@[186ddd*/",tlcStartFcnOfS86B82,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B83)
+/* {S!d4930}Start for S-Function (DIO_Out): '<S457>/Start_Stop1' incorporates:
+ *  Constant: '<S437>/Constant'
+ */
+%<SLibCG_DumpSSCode("/*@[186ddf*/",tlcStartFcnOfS86B83,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B106)
+/* {S!d4932}Start for S-Function (DIO_Out): '<S439>/Switch Output' */
+%<SLibCG_DumpSSCode("/*@[186de1*/",tlcStartFcnOfS86B106,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS47B0)
+/* {S!d4897}Start for Enabled SubSystem: '<Root>/Recover CAN Bus Off1' */
+/* {S!d4934}Start for S-Function (coder_sfun_can_recover_bus_offV2): '<S6>/CAN Recover Bus Off' */
+%<SLibCG_DumpSSCode("/*@[186de2*/",tlcStartFcnOfS47B0,"/*@]*/")>\
+/* {E!d4897}End of Start for SubSystem: '<Root>/Recover CAN Bus Off1' */
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS48B0)
+
+/* {S!d4899}Start for Enabled SubSystem: '<Root>/Recover CAN Bus Off2' */
+/* {S!d4936}Start for S-Function (coder_sfun_can_recover_bus_offV2): '<S7>/CAN Recover Bus Off' */
+%<SLibCG_DumpSSCode("/*@[186de3*/",tlcStartFcnOfS48B0,"/*@]*/")>\
+/* {E!d4899}End of Start for SubSystem: '<Root>/Recover CAN Bus Off2' */
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS46B0)
+
+/* {S!d4901}Start for Enabled SubSystem: '<Root>/Recover CAN Bus Off' */
+/* {S!d4938}Start for S-Function (coder_sfun_can_recover_bus_offV2): '<S5>/CAN Recover Bus Off' */
+%<SLibCG_DumpSSCode("/*@[186de4*/",tlcStartFcnOfS46B0,"/*@]*/")>\
+/* {E!d4901}End of Start for SubSystem: '<Root>/Recover CAN Bus Off' */
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B142)
+
+/* {S!d4903}Start for S-Function (EcoCoder_Task): '<S1>/Task Trigger' */
+%<SLibCG_DumpSSCode("/*@[186de7*/",tlcStartFcnOfS86B142,"/*@]*/")>\
+/* {E!d4903}End of Start for S-Function (EcoCoder_Task): '<S1>/Task Trigger' */
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B144)
+
+/* {S!d4940}Start for S-Function (ASW_Schedule): '<S1>/ASWSchedule_Conf' */
+%<SLibCG_DumpSSCode("/*@[186de8*/",tlcStartFcnOfS86B144,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B145)
+/* {S!d4942}Start for S-Function (EcoCoder_LCF_Def): '<S1>/ecoder_sfun_lcf_def' */
+%<SLibCG_DumpSSCode("/*@[186de9*/",tlcStartFcnOfS86B145,"/*@]*/")>\
+%endif
+%if !SLibCGSysFcnIsEmptyForTid(CompiledModel.System[45], "Start",0)
+/* {S!d4905}Start for S-Function (EcoCoder_Task): '<S4>/Task_PwrOff' incorporates:
+ *  SubSystem: '<S4>/Power Off Management'
+ */
+%<SLibCG_DumpSSCode("/*@[186def*/",SLibCGIRGenReusableSysCall("Start", [], 45, 0, 0, 0, 19, 86),"/*@]*/")>\
+
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B151)
+%<SLibCG_DumpSSCode("/*@[186deb*/",tlcStartFcnOfS86B151,"/*@]*/")>\
+/* {E!d4905}End of Start for S-Function (EcoCoder_Task): '<S4>/Task_PwrOff' */
+%endif
+%if !WHITE_SPACE(tlcStartFcnOfS86B170)
+
+/* {S!d4944}Start for S-Function (DIO_Out): '<S457>/Start_Stop2' */
+%<SLibCG_DumpSSCode("/*@[186ded*/",tlcStartFcnOfS86B170,"/*@]*/")>\
+%endif
+%<SLibCGIRDumpSystemUserCode(86, "Start", "Trailer")>\
+PrevZCX_p.UD_Reset_ZCE = UNINITIALIZED_ZCSIG;
+PrevZCX_p.UD_Reset_ZCE_b = UNINITIALIZED_ZCSIG;
+PrevZCX_p.Subsystem_Trig_ZCE_l = POS_ZCSIG;
+PrevZCX_p.Subsystem2_Trig_ZCE = POS_ZCSIG;
+PrevZCX_p.Subsystem7_Trig_ZCE = POS_ZCSIG;
+PrevZCX_p.ShutdownPower_Trig_ZCE = ZERO_ZCSIG;
+PrevZCX_p.SoftwareReset_Trig_ZCE = ZERO_ZCSIG;
+PrevZCX_p.StoreAllNVMData_Trig_ZCE = ZERO_ZCSIG;
+PrevZCX_p.Reverse_Trig_ZCE = UNINITIALIZED_ZCSIG;
+PrevZCX_p.Reverse1_Trig_ZCE = UNINITIALIZED_ZCSIG;
+PrevZCX_p.Reverse2_Trig_ZCE = UNINITIALIZED_ZCSIG;
+PrevZCX_p.Reverse3_Trig_ZCE = UNINITIALIZED_ZCSIG;
+PrevZCX_p.Subsystem_Trig_ZCE = UNINITIALIZED_ZCSIG;
+/* {S!d4946}InitializeConditions for DiscreteIntegrator: '<S288>/Integrator' */
+/*@>179f59*/DW_l./*@>197627*/Integrator_PrevResetState/*@>c6766*/ = /*@>197330*/2;
+/* {S!d4948}InitializeConditions for DiscreteIntegrator: '<S333>/Integrator' */
+/*@>179f5f*/DW_l./*@>19762a*/Integrator_PrevResetState_n/*@>c6767*/ = /*@>197333*/2;
+/* {S!d4950}InitializeConditions for Delay: '<S328>/UD' */
+/*@>179f65*/DW_l./*@>19762d*/UD_DSTATE/*@>c6889*/ = /*@>13c62e*/0.0;
+/* {S!d4952}InitializeConditions for DiscreteIntegrator: '<S378>/Integrator' */
+/*@>179f6b*/DW_l./*@>197630*/Integrator_DSTATE_n/*@>c676a*/ = /*@>13c62f*/10.0F;
+/*@>179f71*/DW_l./*@>197633*/Integrator_PrevResetState_f/*@>c676b*/ = /*@>197336*/2;
+/* {S!d4954}InitializeConditions for Delay: '<S373>/UD' */
+/*@>179f77*/DW_l./*@>197636*/UD_DSTATE_p/*@>c689a*/ = /*@>13c630*/0.0F;
+/* {S!d4956}InitializeConditions for Delay: '<S107>/Delay' */
+/*@>179f7d*/DW_l./*@>197639*/CircBufIdx/*@>c68aa*/ = /*@>13c4f3*/0U;
+%if !SLibCGSysFcnIsEmptyForTid(CompiledModel.System[45], "SystemInitialize",0)
+/* {S!d4907}SystemInitialize for S-Function (EcoCoder_Task): '<S4>/Task_PwrOff' incorporates:
+ *  SubSystem: '<S4>/Power Off Management'
+ */
+%<SLibCG_DumpSSCode("/*@[186df0*/",SLibCGIRGenReusableSysCall("SystemInitialize", [], 45, 0, 4, 0, 19, 86),"/*@]*/")>\
+
+
+/* {E!d4907}End of SystemInitialize for S-Function (EcoCoder_Task): '<S4>/Task_PwrOff' */
+
+%endif
+/* {S!d4958}SystemInitialize for Chart: '<S437>/Chart' */
+/*@>179f83*/DW_l./*@>19763c*/is_HazardOFF/*@>c68ba*/ = /*@>13c4f0*/IN_NO_ACTIVE_CHILD;
+/*@>179f89*/DW_l./*@>19763f*/is_HazardON/*@>c68be*/ = /*@>13c4ed*/IN_NO_ACTIVE_CHILD;
+/*@>179f8f*/DW_l./*@>197642*/temporalCounter_i1_j/*@>c68c8*/ = /*@>197339*/0U;
+/*@>179f95*/DW_l./*@>197645*/is_active_c9_Ecotron/*@>c68c1*/ = /*@>19733c*/0U;
+/*@>179f9b*/DW_l./*@>197648*/is_c9_Ecotron/*@>c68c5*/ = /*@>13c4e8*/IN_NO_ACTIVE_CHILD;
+/* {S!d4960}SystemInitialize for Chart: '<S459>/Chart' */
+/*@>179fa1*/DW_l./*@>19764b*/is_FallingBuzz/*@>c68da*/ = /*@>13c4e1*/IN_NO_ACTIVE_CHILD;
+/*@>179fa7*/DW_l./*@>19764e*/temporalCounter_i1/*@>c68e4*/ = /*@>13c4d7*/0U;
+/*@>179fad*/DW_l./*@>197651*/is_active_c14_Ecotron/*@>c68dd*/ = /*@>19733f*/0U;
+/*@>179fb3*/DW_l./*@>197654*/is_c14_Ecotron/*@>c68e1*/ = /*@>13c4dc*/IN_NO_ACTIVE_CHILD;
+/* {S!d4909}SystemInitialize for Atomic SubSystem: '<S459>/Rising Edge' */
+/* {S!d4962}InitializeConditions for UnitDelay: '<S464>/Unit Delay' */
+/*@>179fb9*/DW_l./*@>197657*/UnitDelay_DSTATE_a/*@>c68f7*/ = /*@>13c631*/true;
+/* {E!d4909}End of SystemInitialize for SubSystem: '<S459>/Rising Edge' */
+
+/* {S!d4964}SystemInitialize for Chart: '<S440>/Chart' */
+/*@>179fbf*/DW_l./*@>19765a*/is_active_c4_Ecotron/*@>c6906*/ = /*@>197342*/0U;
+/*@>179fc5*/DW_l./*@>19765d*/is_c4_Ecotron/*@>c690a*/ = /*@>13c4d1*/IN_NO_ACTIVE_CHILD;
+/* {S!d4966}SystemInitialize for Chart: '<S228>/Chart' */
+/*@>179fcb*/DW_l./*@>197660*/temporalCounter_i1_j3/*@>c6921*/ = /*@>197345*/0U;
+/*@>179fd1*/DW_l./*@>197663*/is_active_c7_Ecotron/*@>c691a*/ = /*@>197348*/0U;
+/*@>179fd7*/DW_l./*@>197666*/is_c7_Ecotron/*@>c691e*/ = /*@>13c4cb*/IN_NO_ACTIVE_CHILD;
+/* {S!d4968}SystemInitialize for Chart: '<S228>/Chart1' */
+/*@>179fdd*/DW_l./*@>197669*/temporalCounter_i1_n/*@>c6939*/ = /*@>13c4bd*/0U;
+/*@>179fe3*/DW_l./*@>19766c*/is_active_c1_Ecotron/*@>c6932*/ = /*@>19734b*/0U;
+/*@>179fe9*/DW_l./*@>19766f*/is_c1_Ecotron/*@>c6936*/ = /*@>13c4c2*/IN_NO_ACTIVE_CHILD;
+/* {S!d4970}SystemInitialize for Chart: '<S195>/Chart' */
+/*@>179fef*/DW_l./*@>197672*/is_Otonom/*@>c694b*/ = /*@>13c4bb*/IN_NO_ACTIVE_CHILD;
+/*@>179ff5*/DW_l./*@>197675*/temporalCounter_i1_jd/*@>c6955*/ = /*@>19734e*/0U;
+/*@>179ffb*/DW_l./*@>197678*/is_active_c2_Ecotron/*@>c694e*/ = /*@>197351*/0U;
+/*@>17a001*/DW_l./*@>19767b*/is_c2_Ecotron/*@>c6952*/ = /*@>13c4b6*/IN_NO_ACTIVE_CHILD;
+/* {S!d4972}SystemInitialize for Chart: '<S242>/Chart1' */
+/*@>17a007*/DW_l./*@>19767e*/is_active_c8_Ecotron/*@>c6966*/ = /*@>197354*/0U;
+/*@>17a00d*/DW_l./*@>197681*/is_c8_Ecotron/*@>c696a*/ = /*@>13c4ad*/IN_NO_ACTIVE_CHILD;
+/* {S!d4974}SystemInitialize for Chart: '<S240>/Chart' */
+/*@>17a013*/DW_l./*@>197684*/is_active_c5_Ecotron/*@>c697a*/ = /*@>197357*/0U;
+/*@>17a019*/DW_l./*@>197687*/is_c5_Ecotron/*@>c697e*/ = /*@>13c4a7*/IN_NO_ACTIVE_CHILD;
+/* {S!d4976}SystemInitialize for Chart: '<S197>/Chart' */
+/*@>17a01f*/DW_l./*@>19768a*/is_active_c6_Ecotron/*@>c698e*/ = /*@>19735a*/0U;
+/*@>17a025*/DW_l./*@>19768d*/is_c6_Ecotron/*@>c6992*/ = /*@>13c4a1*/IN_NO_ACTIVE_CHILD;
+/* {S!d4978}SystemInitialize for Chart: '<S198>/Chart' */
+/*@>17a02b*/DW_l./*@>197690*/is_Shutdown/*@>c69a3*/ = /*@>13c49d*/IN_NO_ACTIVE_CHILD;
+/*@>17a031*/DW_l./*@>197693*/is_Startup/*@>c69a7*/ = /*@>13c49a*/IN_NO_ACTIVE_CHILD;
+/*@>17a037*/DW_l./*@>197696*/temporalCounter_i1_i/*@>c69b1*/ = /*@>19735d*/0U;
+/*@>17a03d*/DW_l./*@>197699*/is_active_c11_Ecotron/*@>c69aa*/ = /*@>197360*/0U;
+/*@>17a043*/DW_l./*@>19769c*/is_c11_Ecotron/*@>c69ae*/ = /*@>13c495*/IN_NO_ACTIVE_CHILD;
+/* {S!d4911}SystemInitialize for Atomic SubSystem: '<S198>/Rising Edge' */
+/* {S!d4980}InitializeConditions for UnitDelay: '<S410>/Unit Delay' */
+/*@>17a049*/DW_l./*@>19769f*/UnitDelay_DSTATE_ix/*@>c69c4*/ = /*@>13c632*/true;
+/* {E!d4911}End of SystemInitialize for SubSystem: '<S198>/Rising Edge' */
+
+/* {S!d4982}InitializeConditions for MATLABSystem: '<S244>/Moving Average1' */
+/*@>c7060*/if (/*@>17a04f*/DW_l./*@>1976a2*/obj.pStatistic->isInitialized/*@>c705f*/ == /*@>13c457*/1) {
+    /*@>17a055*/DW_l./*@>1976a5*/obj.pStatistic->/*@>197567*/pCumSum/*@>c7067*/ = /*@>13c454*/0.0F;
+    /*@>167f0a*/memset(&/*@>17a061*/DW_l./*@>1976ab*/obj.pStatistic->/*@>1975af*/pCumSumRev[0], /*@>197363*/0, 199U * sizeof(real32_T));
+    /*@>17a06d*/DW_l./*@>1976b1*/obj.pStatistic->/*@>197564*/pCumRevIndex/*@>c706f*/ = /*@>13c453*/1.0F;
+}
+/* {E!d4982}End of InitializeConditions for MATLABSystem: '<S244>/Moving Average1' */
+
+/* {S!d4984}InitializeConditions for MATLABSystem: '<S244>/Moving Average2' */
+/*@>c717b*/if (/*@>17a05b*/DW_l./*@>1976a8*/obj_k.pStatistic->isInitialized/*@>c717a*/ == /*@>13c451*/1) {
+    /*@>17a067*/DW_l./*@>1976ae*/obj_k.pStatistic->/*@>197561*/pCumSum/*@>c7182*/ = /*@>13c44e*/0.0F;
+    /*@>167f0c*/memset(&/*@>17a073*/DW_l./*@>1976b4*/obj_k.pStatistic->/*@>1975ac*/pCumSumRev[0], /*@>197366*/0, 199U * sizeof(real32_T));
+    /*@>17a079*/DW_l./*@>1976b7*/obj_k.pStatistic->/*@>19755e*/pCumRevIndex/*@>c718a*/ = /*@>13c44d*/1.0F;
+}
+/* {E!d4984}End of InitializeConditions for MATLABSystem: '<S244>/Moving Average2' */
+%<SLibInsertInitPeriodicCStatesFcn(system)>
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function ModelInitializeFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void ModelInitialize(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(3, 15, fcnProtoType)>
+%endfunction

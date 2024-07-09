@@ -1,0 +1,22 @@
+%implements s86_b0_mueri_2_Start "C"
+
+%function Start(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcStartFcnOfS45B15 = OpaqueTLCBlockFcn("Start", 45, 15, 2, 0, 0)
+%if !WHITE_SPACE(tlcStartFcnOfS45B15)
+/* Start for S-Function (DI_Key_In): '<S413>/SwitchInput_ReadKeyOn' */
+%<SLibCG_DumpSSCode("/*@[e7a7d*/",tlcStartFcnOfS45B15,"/*@]*/")>\
+%endif
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function StartFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Start(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(2, 0, fcnProtoType)>
+%endfunction

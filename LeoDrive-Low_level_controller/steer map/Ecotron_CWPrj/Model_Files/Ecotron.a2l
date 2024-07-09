@@ -1,0 +1,5286 @@
+/******************************************************************************
+ *
+ *  ASAP2 file:     Ecotron.a2l
+ *
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use. 
+ * 
+ * Code generation for model "Ecotron".
+ *
+ * Model version              : 1.206
+ * Simulink Coder version : 9.2 (R2019b) 18-Jul-2019
+ * C source code generated on : Thu Jun 13 18:26:42 2024
+ * 
+ * Target selection: EcoCoderTC27x.tlc
+ * Embedded hardware selection: Infineon->TriCore
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
+ *
+ * (add additional file header information here)
+ *
+ ******************************************************************************/
+
+ASAP2_VERSION  1 31   /* Version 1.31 */
+
+/begin PROJECT ProjectName "Project Comment Goes Here"
+  
+  /begin HEADER "Header Comments go here"
+    
+  /end HEADER
+  
+  
+  /begin MODULE ModuleName  "Module Comment Goes Here"
+    
+    /* EcoCoder v2.9.12 R7 Target:EH2275A02 verCalTool:0.0*/
+    
+    
+    /* XCP-En:0 XCPCalTool:EcoCAL INCA CANape XCP-CAN:CAN_CTRL_C XCP-CAN-Baud:500000bps*/ 
+    /* CCP-En:1 CCP-TYPE:Configurable CCPCalTool:EcoCAL INCA CCP-CAN:CAN_CTRL_A CCP-CAN-Baud:500000bps*/
+    /*PGCANAEn:NoUse PGCANAStation:NoUse PGCANABaud:500kbps PGCANACRO:NoUse PGCANADTO:NoUse*/
+    /*PGCANBEn:NoUse PGCANBStation:NoUse PGCANBBaud:500kbps PGCANBCRO:NoUse PGCANBDTO:NoUse*/
+    /*PGCANCEn:NoUse PGCANCStation:NoUse PGCANCBaud:500kbps PGCANCCRO:NoUse PGCANCDTO:NoUse*/
+    /*PGCANDEn:NoUse PGCANDStation:NoUse PGCANDBaud:500kbps PGCANDCRO:NoUse PGCANDDTO:NoUse*/
+    /begin A2ML
+      /************************************************************************************/
+      /*                                                                                  */
+      /*   ASAP2 meta language for XCP protocol layer V1.0                                */
+      /*                                                                                  */
+      /*   2019-01-04                                                                     */
+      /*                                                                                  */
+      /*   Ecotrons hxl                                                                   */
+      /*                                                                                  */
+      /*   Datatypes:                                                                     */
+      /*                                                                                  */
+      /*   A2ML       ASAP2             Windows      description                          */
+      /*   -------------------------------------------------------------------------------*/
+      /*   uchar      UBYTE             BYTE         unsigned 8 Bit                       */
+      /*   char       SBYTE             char         signed 8 Bit                         */
+      /*   uint       UWORD             WORD         unsigned integer 16 Bit              */
+      /*   int        SWORD             int          signed integer 16 Bit                */
+      /*   ulong      ULONG             DWORD        unsigned integer 32 Bit              */
+      /*   long       SLONG             LONG         signed integer 32 Bit                */
+      /*   float      FLOAT32_IEEE                   float 32 Bit                         */
+      /*                                                                                  */
+      /************************************************************************************/
+      /*ECO_XCP_Note_Start
+       struct Protocol_Layer {
+       uint;
+       uint;
+       uint;
+       uint;
+       uint;
+       uint;
+       uint;
+       uint;
+       uchar;
+       uint;
+       enum {
+       "BYTE_ORDER_MSB_LAST" = 0,
+       "BYTE_ORDER_MSB_FIRST" = 1
+       }; 
+       enum {
+       "ADDRESS_GRANULARITY_BYTE" = 1,
+       "ADDRESS_GRANULARITY_WORD" = 2,
+       "ADDRESS_GRANULARITY_DWORD" = 4
+       };
+       taggedstruct {
+       ("OPTIONAL_CMD" enum {
+       "GET_COMM_MODE_INFO" = 251,
+       "GET_ID" = 250,
+       "SET_REQUEST" = 249,
+       "GET_SEED" = 248,
+       "UNLOCK" = 247,
+       "SET_MTA" = 246,
+       "UPLOAD" = 245,
+       "SHORT_UPLOAD" = 244,
+       "BUILD_CHECKSUM" = 243,
+       "TRANSPORT_LAYER_CMD" = 242,
+       "USER_CMD" = 241,
+       "DOWNLOAD" = 240,
+       "DOWNLOAD_NEXT" = 239,
+       "DOWNLOAD_MAX" = 238,
+       "SHORT_DOWNLOAD" = 237,
+       "MODIFY_BITS" = 236,
+       "SET_CAL_PAGE" = 235,
+       "GET_CAL_PAGE" = 234,
+       "GET_PAG_PROCESSOR_INFO" = 233,
+       "GET_SEGMENT_INFO" = 232,
+       "GET_PAGE_INFO" = 231,
+       "SET_SEGMENT_MODE" = 230,
+       "GET_SEGMENT_MODE" = 229,
+       "COPY_CAL_PAGE" = 228,
+       "CLEAR_DAQ_LIST" = 227,
+       "SET_DAQ_PTR" = 226,
+       "WRITE_DAQ" = 225,
+       "SET_DAQ_LIST_MODE" = 224,
+       "GET_DAQ_LIST_MODE" = 223,
+       "START_STOP_DAQ_LIST" = 222,
+       "START_STOP_SYNCH" = 221,
+       "GET_DAQ_CLOCK" = 220,
+       "READ_DAQ" = 219,
+       "GET_DAQ_PROCESSOR_INFO" = 218,
+       "GET_DAQ_RESOLUTION_INFO" = 217,
+       "GET_DAQ_LIST_INFO" = 216,
+       "GET_DAQ_EVENT_INFO" = 215,
+       "FREE_DAQ" = 214,
+       "ALLOC_DAQ" = 213,
+       "ALLOC_ODT" = 212,
+       "ALLOC_ODT_ENTRY" = 211,
+       "PROGRAM_START" = 210,
+       "PROGRAM_CLEAR" = 209,
+       "PROGRAM" = 208,
+       "PROGRAM_RESET" = 207,
+       "GET_PGM_PROCESSOR_INFO" = 206,
+       "GET_SECTOR_INFO" = 205,
+       "PROGRAM_PREPARE" = 204,
+       "PROGRAM_FORMAT" = 203,
+       "PROGRAM_NEXT" = 202,
+       "PROGRAM_MAX" = 201,
+       "PROGRAM_VERIFY" = 200
+       })*;
+       "COMMUNICATION_MODE_SUPPORTED" taggedunion {
+       "BLOCK" taggedstruct {
+       "SLAVE" ;
+       "MASTER" struct {
+       uchar;
+       uchar;
+       };
+       };
+       "INTERLEAVED" uchar;
+       };
+       "SEED_AND_KEY_EXTERNAL_FUNCTION" char[256];
+       };
+       };
+       
+       struct Daq {
+       enum {
+       "STATIC" = 0,
+       "DYNAMIC" = 1
+       };
+       uint;
+       uint;
+       uchar;
+       enum {
+       "OPTIMISATION_TYPE_DEFAULT" = 0,
+       "OPTIMISATION_TYPE_ODT_TYPE_16" = 1,
+       "OPTIMISATION_TYPE_ODT_TYPE_32" = 2,
+       "OPTIMISATION_TYPE_ODT_TYPE_64" = 3,
+       "OPTIMISATION_TYPE_ODT_TYPE_ALIGNMENT" = 4,
+       "OPTIMISATION_TYPE_MAX_ENTRY_SIZE" = 5
+       };
+       enum {
+       "ADDRESS_EXTENSION_FREE" = 0,
+       "ADDRESS_EXTENSION_ODT" = 1,
+       "ADDRESS_EXTENSION_DAQ" = 3
+       };
+       enum {
+       "IDENTIFICATION_FIELD_TYPE_ABSOLUTE" = 0,
+       "IDENTIFICATION_FIELD_TYPE_RELATIVE_BYTE" = 1,
+       "IDENTIFICATION_FIELD_TYPE_RELATIVE_WORD" = 2,
+       "IDENTIFICATION_FIELD_TYPE_RELATIVE_WORD_ALIGNED" = 3
+       };
+       enum {
+       "GRANULARITY_ODT_ENTRY_SIZE_DAQ_BYTE" = 1,
+       "GRANULARITY_ODT_ENTRY_SIZE_DAQ_WORD" = 2,
+       "GRANULARITY_ODT_ENTRY_SIZE_DAQ_DWORD" = 4,
+       "GRANULARITY_ODT_ENTRY_SIZE_DAQ_DLONG" = 8
+       };
+       uchar;
+       enum {
+       "NO_OVERLOAD_INDICATION" = 0,
+       "OVERLOAD_INDICATION_PID" = 1,
+       "OVERLOAD_INDICATION_EVENT" = 2
+       };
+       taggedstruct {
+       "PRESCALER_SUPPORTED" ;
+       "RESUME_SUPPORTED" ;
+       block "STIM" struct {
+       enum {
+       "GRANULARITY_ODT_ENTRY_SIZE_STIM_BYTE" = 1,
+       "GRANULARITY_ODT_ENTRY_SIZE_STIM_WORD" = 2,
+       "GRANULARITY_ODT_ENTRY_SIZE_STIM_DWORD" = 4,
+       "GRANULARITY_ODT_ENTRY_SIZE_STIM_DLONG" = 8
+       };
+       uchar;
+       taggedstruct {
+       "BIT_STIM_SUPPORTED" ;
+       };
+       };
+       block "TIMESTAMP_SUPPORTED" struct {
+       uint;
+       enum {
+       "NO_TIME_STAMP" = 0,
+       "SIZE_BYTE" = 1,
+       "SIZE_WORD" = 2,
+       "SIZE_DWORD" = 4
+       };
+       enum {
+       "UNIT_1NS" = 0,
+       "UNIT_10NS" = 1,
+       "UNIT_100NS" = 2,
+       "UNIT_1US" = 3,
+       "UNIT_10US" = 4,
+       "UNIT_100US" = 5,
+       "UNIT_1MS" = 6,
+       "UNIT_10MS" = 7,
+       "UNIT_100MS" = 8,
+       "UNIT_1S" = 9
+       };
+       taggedstruct {
+       "TIMESTAMP_FIXED" ;
+       };
+       };
+       "PID_OFF_SUPPORTED" ;
+       (block "DAQ_LIST" struct {
+       uint;
+       taggedstruct {
+       "DAQ_LIST_TYPE" enum {
+       "DAQ" = 1,
+       "STIM" = 2,
+       "DAQ_STIM" = 3
+       };
+       "MAX_ODT" uchar;
+       "MAX_ODT_ENTRIES" uchar;
+       "FIRST_PID" uchar;
+       "EVENT_FIXED" uint;
+       block "PREDEFINED" taggedstruct {
+       (block "ODT" struct {
+       uchar;
+       taggedstruct {
+       ("ODT_ENTRY" struct {
+       uchar;
+       ulong;
+       uchar;
+       uchar;
+       uchar;
+       })*;
+       };
+       })*;
+       };
+       };
+       })*;
+       (block "EVENT" struct {
+       char[101];
+       char[9];
+       uint;
+       enum {
+       "DAQ" = 1,
+       "STIM" = 2,
+       "DAQ_STIM" = 3
+       };
+       uchar;
+       uchar;
+       uchar;
+       uchar;
+       })*;
+       };
+       };
+       
+       taggedunion Daq_Event {
+       "FIXED_EVENT_LIST" taggedstruct {
+       ("EVENT" uint)*;
+       };
+       "VARIABLE" taggedstruct {
+       block "AVAILABLE_EVENT_LIST" taggedstruct {
+       ("EVENT" uint)*;
+       };
+       block "DEFAULT_EVENT_LIST" taggedstruct {
+       ("EVENT" uint)*;
+       };
+       };
+       };
+       
+       struct Pag {
+       uchar;
+       taggedstruct {
+       "FREEZE_SUPPORTED" ;
+       };
+       };
+       
+       struct Pgm {
+       enum {
+       "PGM_MODE_ABSOLUTE" = 1,
+       "PGM_MODE_FUNCTIONAL" = 2,
+       "PGM_MODE_ABSOLUTE_AND_FUNCTIONAL" = 3
+       };
+       uchar;
+       uchar;
+       taggedstruct {
+       (block "SECTOR" struct {
+       char[101];
+       uchar;
+       ulong;
+       ulong;
+       uchar;
+       uchar;
+       uchar;
+       })*;
+       "COMMUNICATION_MODE_SUPPORTED" taggedunion {
+       "BLOCK" taggedstruct {
+       "SLAVE" ;
+       "MASTER" struct {
+       uchar;
+       uchar;
+       };
+       };
+       "INTERLEAVED" uchar;
+       };
+       };
+       };
+       
+       struct Segment {
+       uchar;
+       uchar;
+       uchar;
+       uchar;
+       uchar;
+       taggedstruct {
+       block "CHECKSUM" struct {
+       enum {
+       "XCP_ADD_11" = 1,
+       "XCP_ADD_12" = 2,
+       "XCP_ADD_14" = 3,
+       "XCP_ADD_22" = 4,
+       "XCP_ADD_24" = 5,
+       "XCP_ADD_44" = 6,
+       "XCP_CRC_16" = 7,
+       "XCP_CRC_16_CITT" = 8,
+       "XCP_CRC_32" = 9,
+       "XCP_USER_DEFINED" = 255
+       };
+       taggedstruct {
+       "MAX_BLOCK_SIZE" ulong;
+       "EXTERNAL_FUNCTION" char[256];
+       };
+       };
+       (block "PAGE" struct {
+       uchar;
+       enum {
+       "ECU_ACCESS_NOT_ALLOWED" = 0,
+       "ECU_ACCESS_WITHOUT_XCP_ONLY" = 1,
+       "ECU_ACCESS_WITH_XCP_ONLY" = 2,
+       "ECU_ACCESS_DONT_CARE" = 3
+       };
+       enum {
+       "XCP_READ_ACCESS_NOT_ALLOWED" = 0,
+       "XCP_READ_ACCESS_WITHOUT_ECU_ONLY" = 1,
+       "XCP_READ_ACCESS_WITH_ECU_ONLY" = 2,
+       "XCP_READ_ACCESS_DONT_CARE" = 3
+       };
+       enum {
+       "XCP_WRITE_ACCESS_NOT_ALLOWED" = 0,
+       "XCP_WRITE_ACCESS_WITHOUT_ECU_ONLY" = 1,
+       "XCP_WRITE_ACCESS_WITH_ECU_ONLY" = 2,
+       "XCP_WRITE_ACCESS_DONT_CARE" = 3
+       };
+       taggedstruct {
+       "INIT_SEGMENT" uchar;
+       };
+       })*;
+       (block "ADDRESS_MAPPING" struct {
+       ulong;
+       ulong;
+       ulong;
+       })*;
+       "PGM_VERIFY" ulong;
+       };
+       };
+       
+       taggedstruct Common_Parameters {
+       block "PROTOCOL_LAYER" struct Protocol_Layer;
+       block "SEGMENT" struct Segment;
+       block "DAQ" struct Daq;
+       block "PAG" struct Pag;
+       block "PGM" struct Pgm;
+       block "DAQ_EVENT" taggedunion Daq_Event;
+       };
+       
+       struct CAN_Parameters {
+       uint;
+       taggedstruct {
+       "CAN_ID_BROADCAST" ulong;
+       "CAN_ID_MASTER" ulong;
+       "CAN_ID_SLAVE" ulong;
+       "BAUDRATE" ulong;
+       "SAMPLE_POINT" uchar;
+       "SAMPLE_RATE" enum {
+       "SINGLE" = 1,
+       "TRIPLE" = 3
+       };
+       "BTL_CYCLES" uchar;
+       "SJW" uchar;
+       "SYNC_EDGE" enum {
+       "SINGLE" = 1,
+       "DUAL" = 2
+       };
+       "MAX_DLC_REQUIRED" ;
+       (block "DAQ_LIST_CAN_ID" struct {
+       uint;
+       taggedstruct {
+       "VARIABLE" ;
+       "FIXED" ulong;
+       };
+       })*;
+       };
+       };
+       
+       struct SxI_Parameters {
+       uint;
+       ulong;
+       taggedstruct {
+       "ASYNCH_FULL_DUPLEX_MODE" struct {
+       enum {
+       "PARITY_NONE" = 0,
+       "PARITY_ODD" = 1,
+       "PARITY_EVEN" = 2
+       };
+       enum {
+       "ONE_STOP_BIT" = 1,
+       "TWO_STOP_BITS" = 2
+       };
+       };
+       "SYNCH_FULL_DUPLEX_MODE_BYTE" ;
+       "SYNCH_FULL_DUPLEX_MODE_WORD" ;
+       "SYNCH_FULL_DUPLEX_MODE_DWORD" ;
+       "SYNCH_MASTER_SLAVE_MODE_BYTE" ;
+       "SYNCH_MASTER_SLAVE_MODE_WORD" ;
+       "SYNCH_MASTER_SLAVE_MODE_DWORD" ;
+       };
+       enum {
+       "HEADER_LEN_BYTE" = 0,
+       "HEADER_LEN_CTR_BYTE" = 1,
+       "HEADER_LEN_FILL_BYTE" = 2,
+       "HEADER_LEN_WORD" = 3,
+       "HEADER_LEN_CTR_WORD" = 4,
+       "HEADER_LEN_FILL_WORD" = 5
+       };
+       enum {
+       "NO_CHECKSUM" = 0,
+       "CHECKSUM_BYTE" = 1,
+       "CHECKSUM_WORD" = 2
+       };
+       };
+       
+       struct TCP_IP_Parameters {
+       uint;
+       uint;
+       taggedunion {
+       "HOST_NAME" char[256];
+       "ADDRESS" char[15];
+       };
+       };
+       
+       struct UDP_IP_Parameters {
+       uint;
+       uint;
+       taggedunion {
+       "HOST_NAME" char[256];
+       "ADDRESS" char[15];
+       };
+       };
+       
+       struct ep_parameters {
+       uchar;
+       enum {
+       "BULK_TRANSFER" = 2,
+       "INTERRUPT_TRANSFER" = 3
+       };
+       uint;
+       uchar;
+       enum {
+       "MESSAGE_PACKING_SINGLE" = 0,
+       "MESSAGE_PACKING_MULTIPLE" = 1,
+       "MESSAGE_PACKING_STREAMING" = 2
+       };
+       enum {
+       "ALIGNMENT_8_BIT" = 0,
+       "ALIGNMENT_16_BIT" = 1,
+       "ALIGNMENT_32_BIT" = 2,
+       "ALIGNMENT_64_BIT" = 3
+       };
+       taggedstruct {
+       "RECOMMENDED_HOST_BUFSIZE" uint;
+       };
+       };
+       
+       struct USB_Parameters {
+       uint;
+       uint;
+       uint;
+       uchar;
+       enum {
+       "HEADER_LEN_BYTE" = 0,
+       "HEADER_LEN_CTR_BYTE" = 1,
+       "HEADER_LEN_FILL_BYTE" = 2,
+       "HEADER_LEN_WORD" = 3,
+       "HEADER_LEN_CTR_WORD" = 4,
+       "HEADER_LEN_FILL_WORD" = 5
+       }; 
+       taggedunion {
+       block "OUT_EP_CMD_STIM" struct ep_parameters;
+       };
+       taggedunion {
+       block "IN_EP_RESERR_DAQ_EVSERV" struct ep_parameters;
+       };
+       taggedstruct {
+       "ALTERNATE_SETTING_NO" uchar;
+       "INTERFACE_STRING_DESCRIPTOR" char[101];
+       (block "OUT_EP_ONLY_STIM" struct ep_parameters)*;
+       (block "IN_EP_ONLY_DAQ" struct ep_parameters)*;
+       block "IN_EP_ONLY_EVSERV" struct ep_parameters;
+       (block "DAQ_LIST_USB_ENDPOINT" struct {
+       uint;
+       taggedstruct {
+       "FIXED_IN" uchar;
+       "FIXED_OUT" uchar;
+       };
+       })*;
+       };
+       };
+       
+       enum packet_assignment_type {
+       "NOT_ALLOWED" = 0,
+       "FIXED" = 1,
+       "VARIABLE_INITIALISED" = 2,
+       "VARIABLE" = 3
+       };
+       
+       struct buffer {
+       uchar;
+       taggedstruct {
+       "MAX_FLX_LEN_BUF" taggedunion {
+       "FIXED" uchar;
+       "VARIABLE" uchar;
+       };
+       block "LPDU_ID" taggedstruct {
+       "FLX_SLOT_ID" taggedunion {
+       "FIXED" uint;
+       "VARIABLE" taggedstruct {
+       "INITIAL_VALUE" uint;
+       };
+       }; 
+       "OFFSET" taggedunion {
+       "FIXED" uchar;
+       "VARIABLE" taggedstruct {
+       "INITIAL_VALUE" uchar;
+       };
+       };
+       "CYCLE_REPETITION" taggedunion {
+       "FIXED" uchar;
+       "VARIABLE" taggedstruct {
+       "INITIAL_VALUE" uchar;
+       };
+       };
+       "CHANNEL" taggedunion {
+       "FIXED" enum {
+       "A" = 0,
+       "B" = 1
+       };
+       "VARIABLE" taggedstruct {
+       "INITIAL_VALUE" enum {
+       "A" = 0,
+       "B" = 1
+       };
+       };
+       };
+       };
+       block "XCP_PACKET" taggedstruct {
+       "CMD" enum packet_assignment_type;
+       "RES_ERR" enum packet_assignment_type;
+       "EV_SERV" enum packet_assignment_type;
+       "DAQ" enum packet_assignment_type;
+       "STIM" enum packet_assignment_type;
+       };
+       };
+       };
+       
+       struct FLX_Parameters {
+       uint;
+       uint;
+       char[256];
+       char[256];
+       uchar;
+       enum {
+       "HEADER_NAX" = 0,
+       "HEADER_NAX_FILL" = 1,
+       "HEADER_NAX_CTR" = 2,
+       "HEADER_NAX_FILL3" = 3,
+       "HEADER_NAX_CTR_FILL2" = 4,
+       "HEADER_NAX_LEN" = 5,
+       "HEADER_NAX_CTR_LEN" = 6,
+       "HEADER_NAX_FILL2_LEN" = 7,
+       "HEADER_NAX_CTR_FILL_LEN" = 8
+       };
+       enum {
+       "PACKET_ALIGNMENT_8" = 0,
+       "PACKET_ALIGNMENT_16" = 1,
+       "PACKET_ALIGNMENT_32" = 2
+       };
+       taggedunion {
+       block "INITIAL_CMD_BUFFER" struct buffer;
+       };
+       taggedunion {
+       block "INITIAL_RES_ERR_BUFFER" struct buffer;
+       };
+       taggedstruct {
+       (block "POOL_BUFFER" struct buffer)*;
+       };
+       };
+       
+       block "IF_DATA" taggedunion if_data {
+       
+       "CANAPE_EXT" struct {
+       int;
+       taggedstruct {
+       "LINK_MAP" struct {
+       char[256];
+       long;
+       uint;
+       uint;
+       long;
+       uint;
+       uint;
+       uint;
+       };
+       "DISPLAY" struct {
+       long;
+       double;
+       double;
+       };
+       "VIRTUAL_CONVERSION" struct {
+       char[256];
+       };
+       };
+       };
+       "CANAPE_MODULE" struct {
+       taggedstruct {
+       ("RECORD_LAYOUT_STEPSIZE" struct {
+       char[256];
+       uint;
+       uint;
+       uint;
+       uint;
+       uint;
+       uint;
+       })*;
+       };
+       };
+       "CANAPE_ADDRESS_UPDATE" taggedstruct {
+       ("EPK_ADDRESS" struct {
+       char[1024]; 
+       long;
+       })*;
+       "ECU_CALIBRATION_OFFSET" struct {
+       char[1024];
+       long;
+       };
+       (block "CALIBRATION_METHOD" taggedunion {
+       "AUTOSAR_SINGLE_POINTERED" struct {
+       char[1024];
+       long;
+       taggedstruct {
+       "ORIGINAL_POINTER_TABLE" struct {
+       char[1024]; 
+       long;
+       };
+       };
+       };
+       "InCircuit2" struct {
+       char[1024];
+       long;
+       taggedstruct {
+       "ORIGINAL_POINTER_TABLE" struct {
+       char[1024];
+       long;
+       };
+       "FLASH_SECTION" struct {
+       ulong;
+       ulong;
+       };
+       };
+       };
+       })*;
+       block "MAP_SYMBOL" taggedstruct {
+       "FIRST" struct {
+       char[1024]; 
+       long; 
+       };
+       "LAST" struct {
+       char[1024]; 
+       long; 
+       };
+       ("ADDRESS_MAPPING_XCP" struct {
+       char[1024]; 
+       char[1024]; 
+       })*;
+       };
+       (block "MEMORY_SEGMENT" struct {
+       char[1024];  
+       taggedstruct {
+       "FIRST" struct {
+       char[1024]; 
+       long; 
+       };
+       "LAST" struct {
+       char[1024]; 
+       long; 
+       };
+       ("ADDRESS_MAPPING_XCP" struct {
+       char[1024]; 
+       char[1024]; 
+       })*;
+       };
+       })*;
+       };
+       "CANAPE_GROUP" taggedstruct {
+       block "STRUCTURE_LIST" (char[1024])*;
+       };
+       
+       "XCP" struct {
+       taggedstruct Common_Parameters; 
+       taggedstruct {
+       block "XCP_ON_CAN" struct {
+       struct CAN_Parameters; 
+       taggedstruct Common_Parameters; 
+       };
+       block "XCP_ON_SxI" struct {
+       struct SxI_Parameters; 
+       taggedstruct Common_Parameters; 
+       };
+       block "XCP_ON_TCP_IP" struct {
+       struct TCP_IP_Parameters; 
+       taggedstruct Common_Parameters; 
+       };
+       block "XCP_ON_UDP_IP" struct {
+       struct UDP_IP_Parameters; 
+       taggedstruct Common_Parameters; 
+       };
+       block "XCP_ON_USB" struct {
+       struct USB_Parameters; 
+       taggedstruct Common_Parameters; 
+       };
+       block "XCP_ON_FLX" struct {
+       struct FLX_Parameters; 
+       taggedstruct Common_Parameters;
+       };
+       }; 
+       };
+       };
+       ECO_XCP_Note_End*/
+      
+      /****************************************************************************/
+      /*   ASAP2 Meta Language for CCP CAN Calibration Protocol V2.1              */
+      /*   Assumes ASAP2 V1.3 or later                                            */
+      /*                                                                          */
+      /*   AML Version V2.4, 27.04.1999                                           */
+      /*                                                                          */
+      /*   Vector Informatik, Zaiser                                              */
+      /*   Hewlett Packard, Krueger                                               */
+      /*   ETAS, Maier                                                            */
+      /*   SIEMENS Automotive, Stuhler                                            */
+      /*                                                                          */
+      /*   Datatypes:                                                             */
+      /*                                                                          */
+      /*   A2ML       ASAP2          Windows  Erlaeuuterung                       */
+      /*   ----------------------------------------------------------------       */
+      /*   uchar      UBYTE          BYTE     unsigned 8 Bit                      */
+      /*   char       SBYTE          char     signed 8 Bit                        */
+      /*   uint       UWORD          WORD     unsigned integer 16 Bit             */
+      /*   int        SWORD          int      signed integer 16 Bit               */
+      /*   ulong      ULONG          DWORD    unsigned integer 32 Bit             */
+      /*   long       SLONG          LONG     signed integer 32 Bit               */
+      /*   float      FLOAT32_IEEE            float 32 Bit                        */
+      /*                                                                          */
+      /****************************************************************************/
+      /*ECO_CCP_Note_Start*/
+      block "IF_DATA" taggedunion if_data { 
+      "ASAP1B_CCP" taggedstruct {
+      
+      (block "SOURCE" struct {
+      
+      struct {
+      char[101];
+      int;
+      long; 
+      };
+      
+      
+      taggedstruct {
+      
+      "DISPLAY_IDENTIFIER" char[32];
+      
+      block "QP_BLOB" struct {
+      
+      uint; 
+      
+      taggedstruct {
+      "LENGTH" uint;
+      
+      "CAN_ID_VARIABLE"; 
+      
+      "CAN_ID_FIXED" ulong;
+      
+      ("RASTER" uchar)*;
+      
+      ("EXCLUSIVE" int)*;
+      
+      "REDUCTION_ALLOWED";
+      
+      "FIRST_PID" uchar; 
+      };
+      };
+      };
+      })*;
+      
+      (block "RASTER" struct {
+      
+      char[101]; 
+      char[9]; 
+      uchar; 
+      int; 
+      long; 
+      taggedstruct {
+      ("EXCLUSIVE" uchar)*;
+      };
+      
+      })*;
+      
+      
+      (block "EVENT_GROUP" struct {
+      
+      char[101]; 
+      char[9];
+      taggedstruct {
+      ("RASTER" uchar)*;
+      };
+      
+      })*;
+      
+      
+      block "SEED_KEY" struct {
+      char[256]; 
+      char[256]; 
+      char[256]; 
+      };
+      
+      block "CHECKSUM" struct {
+      char[256]; 
+      };
+      
+      
+      block "TP_BLOB" struct {
+      
+      uint;
+      uint; 
+      ulong; 
+      ulong; 
+      uint; 
+      uint; 
+      taggedstruct {
+      
+      block "CAN_PARAM" struct {
+      uint;
+      uchar;
+      uchar;
+      };
+      
+      "BAUDRATE" ulong; 
+      "SAMPLE_POINT" uchar; 
+      "SAMPLE_RATE" uchar;
+      "BTL_CYCLES" uchar; 
+      "SJW" uchar; 
+      "SYNC_EDGE" enum {
+      "SINGLE" = 0, 
+      "DUAL" = 1 
+      };
+      
+      "DAQ_MODE" enum { 
+      "ALTERNATING" = 0, 
+      "BURST" = 1 
+      };
+      
+      "BYTES_ONLY"; 
+      
+      "RESUME_SUPPORTED"; 
+      
+      "STORE_SUPPORTED"; 
+      
+      "CONSISTENCY" enum {
+      "DAQ" = 0, 
+      "ODT" = 1 
+      };
+      
+      "ADDRESS_EXTENSION" enum { 
+      "DAQ" = 0, 
+      "ODT" = 1 
+      };
+      
+      block "CHECKSUM_PARAM" struct {
+      uint; 
+      
+      ulong; 
+      
+      taggedstruct {
+      "CHECKSUM_CALCULATION" enum {
+      "ACTIVE_PAGE" = 0,
+      "BIT_OR_WITH_OPT_PAGE" = 1
+      };
+      };
+      };
+      
+      (block "DEFINED_PAGES" struct {
+      struct {
+      uint;
+      char[101]; 
+      uint; 
+      ulong; 
+      ulong;
+      };
+      taggedstruct {
+      "RAM"; 
+      "ROM"; 
+      "FLASH";
+      "EEPROM"; 
+      "RAM_INIT_BY_ECU"; 
+      "RAM_INIT_BY_TOOL"; 
+      "AUTO_FLASH_BACK";
+      "FLASH_BACK"; 
+      "DEFAULT";
+      };
+      })*;
+      
+      ("OPTIONAL_CMD" uint)*; 
+      };
+      };
+      /*EcoCoderINCAStart*/
+      ("ADDRESS_MAPPING" struct 
+      {
+      ulong;
+      ulong;
+      ulong;
+      })*;
+      /*EcoCoderINCAEnd*/
+      /*EcoCoderCANapeStart
+       ("ADDR_MAPPING" struct 
+       {
+       ulong;
+       ulong;
+       ulong;
+       })*;
+       EcoCoderCANapeEnd*/
+      "DP_BLOB" struct {
+      uint; 
+      ulong; 
+      ulong; 
+      };
+      
+      "KP_BLOB" struct {
+      uint; 
+      ulong; 
+      ulong; 
+      taggedstruct {
+      ("RASTER" uchar)*;
+      
+      };
+      };
+      };
+      }; 
+      /*ECO_CCP_Note_End*/
+    /end A2ML
+    
+    /*ECO_XCP_Note_Start
+     /begin IF_DATA XCP
+       /begin PROTOCOL_LAYER
+         0x0100
+         0x07D0
+         0x2710
+         0x3E8
+         0x2710
+         0x3E8
+         0x19
+         0x19
+         0x08
+         0x08
+         BYTE_ORDER_MSB_LAST
+         ADDRESS_GRANULARITY_BYTE
+         OPTIONAL_CMD ALLOC_ODT_ENTRY
+         OPTIONAL_CMD ALLOC_ODT
+         OPTIONAL_CMD ALLOC_DAQ
+         OPTIONAL_CMD FREE_DAQ
+         OPTIONAL_CMD GET_DAQ_EVENT_INFO
+         OPTIONAL_CMD GET_DAQ_RESOLUTION_INFO
+         OPTIONAL_CMD GET_DAQ_PROCESSOR_INFO
+         OPTIONAL_CMD START_STOP_SYNCH
+         OPTIONAL_CMD START_STOP_DAQ_LIST
+         OPTIONAL_CMD GET_DAQ_LIST_MODE
+         OPTIONAL_CMD SET_DAQ_LIST_MODE
+         OPTIONAL_CMD WRITE_DAQ
+         OPTIONAL_CMD SET_DAQ_PTR
+         OPTIONAL_CMD CLEAR_DAQ_LIST
+         OPTIONAL_CMD DOWNLOAD
+         OPTIONAL_CMD SHORT_UPLOAD
+         OPTIONAL_CMD UPLOAD
+         OPTIONAL_CMD SET_MTA
+         OPTIONAL_CMD UNLOCK
+         OPTIONAL_CMD GET_SEED
+         OPTIONAL_CMD GET_ID
+         OPTIONAL_CMD GET_COMM_MODE_INFO
+         OPTIONAL_CMD BUILD_CHECKSUM
+         SEED_AND_KEY_EXTERNAL_FUNCTION ""
+       /end PROTOCOL_LAYER
+       /begin DAQ
+         DYNAMIC
+         0x00
+         0x05
+         0x00
+         OPTIMISATION_TYPE_DEFAULT
+         ADDRESS_EXTENSION_FREE
+         IDENTIFICATION_FIELD_TYPE_ABSOLUTE
+         GRANULARITY_ODT_ENTRY_SIZE_DAQ_BYTE
+         0x07
+         OVERLOAD_INDICATION_PID
+         /begin STIM
+           GRANULARITY_ODT_ENTRY_SIZE_STIM_BYTE
+           0x07
+         /end STIM
+         /begin EVENT
+           "5ms"
+           "5ms"
+           0x00
+           DAQ
+           0x01
+           0x05
+           0x06
+           0x00
+         /end EVENT
+         /begin EVENT
+           "20ms"
+           "20ms"
+           0x01
+           DAQ
+           0x01
+           0x02
+           0x07
+           0x00
+         /end EVENT
+         /begin EVENT
+           "50ms"
+           "50ms"
+           0x02
+           DAQ
+           0x01
+           0x05
+           0x07
+           0x00
+         /end EVENT
+         /begin EVENT
+           "100ms"
+           "100ms"
+           0x03
+           DAQ
+           0x01
+           0x01
+           0x08
+           0x00
+         /end EVENT
+         /begin EVENT
+           "200ms"
+           "200m"
+           0x04
+           DAQ
+           0x01
+           0x02
+           0x08
+           0x00
+         /end EVENT
+       /end DAQ
+       /begin PAG
+         0x00
+       /end PAG
+       /begin PGM
+         PGM_MODE_ABSOLUTE
+         0x00
+         0x00
+       /end PGM
+       
+       /begin XCP_ON_CAN
+         0x0100
+         CAN_ID_MASTER 0x100
+         CAN_ID_SLAVE 0x101
+         BAUDRATE 500000
+         SAMPLE_POINT 0x4B
+         SAMPLE_RATE SINGLE
+         BTL_CYCLES 0x08
+         SJW 0x02
+         SYNC_EDGE SINGLE
+       /end XCP_ON_CAN
+     /end IF_DATA
+     
+     /begin IF_DATA CANAPE_ADDRESS_UPDATE
+     /end IF_DATA
+     
+     /begin MOD_PAR "_default_ModParComment"
+       /begin MEMORY_SEGMENT _ROMCAL
+         "calibration_rom"
+         DATA
+         FLASH
+         INTERN
+         0x80200000
+         0x8000
+         -1 -1 -1 -1 -1
+         /begin IF_DATA XCP
+           /begin SEGMENT
+             0x00
+             0x01
+             0x00
+             0x00
+             0x00
+             /begin CHECKSUM
+               XCP_CRC_16_CITT
+               MAX_BLOCK_SIZE 0xFFFF
+               EXTERNAL_FUNCTION "String.Empty"
+             /end CHECKSUM
+             /begin PAGE
+               0x00
+               ECU_ACCESS_DONT_CARE
+               XCP_READ_ACCESS_DONT_CARE
+               XCP_WRITE_ACCESS_DONT_CARE
+               INIT_SEGMENT 0x00
+             /end PAGE
+             /begin ADDRESS_MAPPING
+               0x80200000
+               0x70000000
+               0x8000
+             /end ADDRESS_MAPPING
+           /end SEGMENT
+         /end IF_DATA    
+       /end MEMORY_SEGMENT
+       
+       /begin MEMORY_SEGMENT _CODE
+         "ecu_code"
+         CODE
+         FLASH
+         INTERN
+         0x80010000
+         0x001EFFFF
+         -1 -1 -1 -1 -1
+       /end MEMORY_SEGMENT
+     /end MOD_PAR
+     ECO_XCP_Note_End*/
+    
+    
+    /*ECO_CCP_Note_Start*/
+    /begin MOD_PAR "_default_ModParComment"
+      ADDR_EPK 0x80234000
+      EPK "EcoCoder v2.9.12 R7 2024-06-13 18:26:44"
+      
+      /*EcoCoderINCAStart*/
+      /begin MEMORY_SEGMENT _RAMCAL
+        "calibration_ram"
+        DATA
+        RAM
+        INTERN
+        0x70000000
+        0x8000
+        -1 -1 -1 -1 -1
+      /end MEMORY_SEGMENT
+      /*EcoCoderINCAEnd*/
+      
+      /begin MEMORY_SEGMENT _ROMCAL
+        "calibration_rom"
+        DATA
+        FLASH
+        INTERN
+        0x80200000
+        0x8000
+        -1 -1 -1 -1 -1
+        /begin IF_DATA ASAP1B_CCP
+          /*EcoCoderINCAStart*/
+          ADDRESS_MAPPING  0x80200000 0x70000000 0x8000
+          /*EcoCoderINCAEnd*/
+          /*EcoCoderCANapeStart
+           ADDR_MAPPING  0x80200000 0x70000000 0x8000
+           EcoCoderCANapeEnd*/
+        /end IF_DATA      
+      /end MEMORY_SEGMENT
+      /begin MEMORY_SEGMENT _epk_data
+        "epk_data"
+        DATA
+        FLASH
+        INTERN
+        0x80234000
+        0xFF
+        -1 -1 -1 -1 -1
+        /begin IF_DATA ASAP1B_CCP
+          /*EcoCoderINCAStart*/
+          ADDRESS_MAPPING  0x80234000 0x80234000 0xFF
+          /*EcoCoderINCAEnd*/
+          /*EcoCoderCANapeStart
+           ADDR_MAPPING  0x80234000 0x80234000 0xFF
+           EcoCoderCANapeEnd*/
+        /end IF_DATA
+      /end MEMORY_SEGMENT
+      /begin MEMORY_SEGMENT _CODE
+        "ecu_code"
+        CODE
+        FLASH
+        INTERN
+        0x80010000
+        0x001EFFFF
+        -1 -1 -1 -1 -1
+      /end MEMORY_SEGMENT
+    /end MOD_PAR
+    
+    /begin IF_DATA ASAP1B_CCP 
+      /begin SOURCE
+        "20ms"
+        3
+        20
+        DISPLAY_IDENTIFIER DAQ2
+        /begin QP_BLOB
+          1
+          LENGTH 0x20
+          CAN_ID_FIXED 0x101
+          RASTER 1
+          REDUCTION_ALLOWED
+          FIRST_PID 0x3C
+        /end QP_BLOB
+      /end SOURCE
+      /begin SOURCE
+        "100ms"
+        3
+        100
+        DISPLAY_IDENTIFIER DAQ3
+        /begin QP_BLOB
+          2
+          LENGTH 0x30
+          CAN_ID_FIXED 0x101
+          RASTER 2
+          REDUCTION_ALLOWED
+          FIRST_PID 0x78
+        /end QP_BLOB
+      /end SOURCE
+      /begin RASTER
+        "20ms"
+        "20ms"
+        1
+        3
+        20
+      /end RASTER
+      /begin RASTER
+        "100ms"
+        "100ms"
+        2
+        3
+        100
+      /end RASTER
+      /begin SEED_KEY
+        ""
+        ""
+        ""
+      /end SEED_KEY
+      
+      /begin CHECKSUM
+        "CRC16.dll"
+      /end CHECKSUM
+      
+      /begin TP_BLOB
+        0x0201
+        0x0204
+        0x100
+        0x101
+        0x112
+        1
+        BAUDRATE 500000
+        SAMPLE_POINT 70
+        SAMPLE_RATE 1
+        BTL_CYCLES 10
+        SJW 1
+        SYNC_EDGE SINGLE
+        DAQ_MODE 0
+        CONSISTENCY 1
+        ADDRESS_EXTENSION 0
+        RESUME_SUPPORTED
+        STORE_SUPPORTED
+        
+        /begin CHECKSUM_PARAM          
+          /*EcoCoderINCAStart*/
+          0x9001
+          /*EcoCoderINCAEnd*/
+          /*EcoCoderCANapeStart
+           0x0C
+           EcoCoderCANapeEnd*/
+          0xffffffff
+          CHECKSUM_CALCULATION ACTIVE_PAGE
+        /end CHECKSUM_PARAM
+        
+        /begin DEFINED_PAGES
+          0x00
+          "RAM_PAGE"
+          0x00
+          0x70000000
+          0x8000
+          RAM
+          RAM_INIT_BY_ECU
+        /end DEFINED_PAGES
+        
+        OPTIONAL_CMD 0X5
+        OPTIONAL_CMD 0X8
+        OPTIONAL_CMD 0X9
+        OPTIONAL_CMD 0XC
+        OPTIONAL_CMD 0XD
+        OPTIONAL_CMD 0XE
+        OPTIONAL_CMD 0XF
+        OPTIONAL_CMD 0X10
+        OPTIONAL_CMD 0X11
+        OPTIONAL_CMD 0X12
+        OPTIONAL_CMD 0X13
+        OPTIONAL_CMD 0X18
+        OPTIONAL_CMD 0X19
+        OPTIONAL_CMD 0X20
+        OPTIONAL_CMD 0X21
+        OPTIONAL_CMD 0X22
+        OPTIONAL_CMD 0X23
+      /end TP_BLOB
+    /end IF_DATA
+    /*ECO_CCP_Note_End*/
+    
+    /begin MOD_COMMON
+      "" /* Comment */
+      ALIGNMENT_BYTE 1
+      ALIGNMENT_WORD 1
+      ALIGNMENT_LONG 1
+      ALIGNMENT_FLOAT32_IEEE 1
+      ALIGNMENT_FLOAT64_IEEE 1
+      BYTE_ORDER MSB_LAST
+      DEPOSIT ABSOLUTE
+    /end MOD_COMMON
+
+    /begin RECORD_LAYOUT Scalar_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Scalar_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Scalar_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Scalar_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Scalar_SWORD
+      FNC_VALUES 1 SWORD COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Scalar_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Scalar_LONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Scalar_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Scalar_FLOAT64_IEEE
+      FNC_VALUES  1 FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_X_BOOLEAN
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_X_BYTE
+      AXIS_PTS_X  1 SBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_X_UBYTE
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_X_UWORD
+      AXIS_PTS_X  1 UWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_WORD
+      FNC_VALUES  1 SWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_X_WORD
+      AXIS_PTS_X  1 SWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_X_ULONG
+      AXIS_PTS_X  1 ULONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_SLONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_X_LONG
+      AXIS_PTS_X  1 SLONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_X_FLOAT32_IEEE
+      AXIS_PTS_X  1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_FLOAT64_IEEE
+      FNC_VALUES  1 FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup1D_X_FLOAT64_IEEE
+      AXIS_PTS_X  1 FLOAT64_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_X_BOOLEAN
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_X_UBYTE
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_X_BYTE
+      AXIS_PTS_X  1 SBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_X_UWORD
+      AXIS_PTS_X  1 UWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_WORD
+      FNC_VALUES  1 SWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_X_WORD
+      AXIS_PTS_X  1 SWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_X_ULONG
+      AXIS_PTS_X  1 ULONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_LONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_X_LONG
+      AXIS_PTS_X  1 SLONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_X_FLOAT32_IEEE
+      AXIS_PTS_X 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_FLOAT64_IEEE
+      FNC_VALUES  1  FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin RECORD_LAYOUT Lookup2D_X_FLOAT64_IEEE
+      AXIS_PTS_X 1 FLOAT64_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Activate_ThrottleControllerOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Activate_ThrottleControllerOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Brake_CalibCMDOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Brake_CalibCMDOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Brake_ControlMode  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Brake_ControlMode@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Brake_PID_D  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Brake_PID_D@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Brake_PID_I  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Brake_PID_I@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Brake_PID_P  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Brake_PID_P@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Buzz_falling_duration  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Buzz_falling_duration@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Buzz_falling_offduration  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Buzz_falling_offduration@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Buzz_rising_duration  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Buzz_rising_duration@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      CANA_recover  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@CANA_recover@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      CANB_recover  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@CANB_recover@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      CANC_recover  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@CANC_recover@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Compensation_I  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Compensation_I@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Compensation_P  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Compensation_P@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Delay  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Delay@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      EPAS_MaxSpeed  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@EPAS_MaxSpeed@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      SetACCOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@SetACCOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Set_Brake_PosOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Set_Brake_PosOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Set_GasOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Set_GasOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Set_GearEnableOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Set_GearEnableOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      SteeringWheelRateOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@SteeringWheelRateOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Steering_ControlModeOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Steering_ControlModeOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Steering_ResetCommandOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Steering_ResetCommandOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Steering_Set_PosOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Steering_Set_PosOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Torque_PID_D  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Torque_PID_D@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Torque_PID_I  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Torque_PID_I@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Torque_PID_P  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Torque_PID_P@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      interval  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@interval@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      interval2  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@interval2@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      repeat  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@repeat@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_single 
+      /* Lower Limit            */      -3.4E+38 
+      /* Upper Limit            */      3.4E+38
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Activate_ThrottleControllerOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Activate_ThrottleControllerOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Brake_CalibCMDOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Brake_CalibCMDOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Brake_ResetOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Brake_ResetOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_Hazard_LightOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_Hazard_LightOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_Hazard_LightOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_Hazard_LightOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_Headlight_FlasherOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_Headlight_FlasherOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_Headlight_FlasherOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_Headlight_FlasherOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_HighBeamOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_HighBeamOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_HighBeamOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_HighBeamOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_Left_BlinkerOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_Left_BlinkerOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_Left_BlinkerOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_Left_BlinkerOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_Right_BlinkerOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_Right_BlinkerOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Button_Right_BlinkerOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Button_Right_BlinkerOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Buzz_controlOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Buzz_controlOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Buzz_controlOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Buzz_controlOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      EPAS_DriverIntervention_overrideOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@EPAS_DriverIntervention_overrideOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      EPAS_DriverIntervention_overrideOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@EPAS_DriverIntervention_overrideOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      SetACCOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@SetACCOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Set_Brake_PosOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Set_Brake_PosOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Set_GasOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Set_GasOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Set_GearEnableOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Set_GearEnableOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Set_GearOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Set_GearOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      SteeringWheelRateOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@SteeringWheelRateOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Steering_ControlModeOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Steering_ControlModeOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Steering_ResetCommandOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Steering_ResetCommandOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Steering_Set_PosOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Steering_Set_PosOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      debug_PCheardbeatOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@debug_PCheardbeatOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      debug_PCheardbeatOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@debug_PCheardbeatOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      debug_otonomDisableOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@debug_otonomDisableOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      debug_otonomDisableOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@debug_otonomDisableOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      debug_otonomEnableOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@debug_otonomEnableOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      debug_otonomEnableOvrEn_val  
+      /* Long Identifier        */      "Override Control"
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@debug_otonomEnableOvrEn_val@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_boolean 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      1
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Brake_ResetOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Brake_ResetOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_UBYTE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_uint8 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      255
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Brake_SetDuty  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Brake_SetDuty@ */ 
+      /* Record Layout          */      Scalar_UBYTE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_uint8 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      255
+    /end CHARACTERISTIC
+
+    /begin CHARACTERISTIC
+      /* Name                   */      Set_GearOvrCal_val  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@Set_GearOvrCal_val@ */ 
+      /* Record Layout          */      Scalar_UBYTE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      Ecotron_CM_uint8 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      255
+    /end CHARACTERISTIC
+
+    /begin MEASUREMENT
+      /* Name                   */      PC_FrontwheelMsg_cnt
+      /* Long identifier        */      ""
+      /* Data type              */      ULONG
+      /* Conversion method      */      Ecotron_CM_uint32
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      4294967295
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_FrontwheelMsg_cnt@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_rxVehiclemass
+      /* Long identifier        */      ""
+      /* Data type              */      ULONG
+      /* Conversion method      */      Ecotron_CM_uint32
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      4294967295
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_rxVehiclemass@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_SetLongAcc
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_SetLongAcc@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_SetLimitVel
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_SetLimitVel@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SetACCOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@SetACCOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_MotorRPM
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_MotorRPM@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_KL75
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_KL75@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_BoardTemp
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_BoardTemp@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_InputVoltage
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_InputVoltage@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_InputCurrent
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_InputCurrent@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      THROTTLE_CurrentPedalPos
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@THROTTLE_CurrentPedalPos@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      THROTTLE_ECUTimeout
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@THROTTLE_ECUTimeout@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      THROTTLE_PedalConnectionError
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@THROTTLE_PedalConnectionError@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_ReferenceBrakePos
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_ReferenceBrakePos@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_BrakePos
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_BrakePos@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_MotorDuty
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_MotorDuty@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_MotorCurrent
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_MotorCurrent@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_MotorVoltage
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_MotorVoltage@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_BoxTemp
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_BoxTemp@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_RawTorqueA
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_RawTorqueA@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_RawTorqueB
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_RawTorqueB@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_RefSteerPos
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_RefSteerPos@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_ActualSteeringPos
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_ActualSteeringPos@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_MotorDuty
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_MotorDuty@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_MotorCurrent
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_MotorCurrent@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_MotorVoltage
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_MotorVoltage@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_BoxTemp
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_BoxTemp@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_TorqueA
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_TorqueA@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_TorqueB
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_TorqueB@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_SetFrontWheelAngle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_SetFrontWheelAngle@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_SetFrontWheelAngel_Rate
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_SetFrontWheelAngel_Rate@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_SetGasPos
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_SetGasPos@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_SetBrakePos
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_SetBrakePos@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_LongitudinalAcceleration
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_LongitudinalAcceleration@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_HandBrakeStatus
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_HandBrakeStatus@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_BLWheelSpeed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_BLWheelSpeed@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_BRWheelSpeed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_BRWheelSpeed@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_FLWheelSpeed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_FLWheelSpeed@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_FRWheelSpeed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_FRWheelSpeed@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_CompensationPID_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_CompensationPID_out@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_rxPitch
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_rxPitch@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_MotorTorque_raw
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_MotorTorque_raw@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_MotorTorque_filtered
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_MotorTorque_filtered@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_Fr_request
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_Fr_request@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_set_brake
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_set_brake@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Set_Brake_PosOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Set_Brake_PosOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_BrakePedalPos
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_BrakePedalPos@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Brake_CalibCMDOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Brake_CalibCMDOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Set_GasOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Set_GasOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Activate_ThrottleControllerOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Activate_ThrottleControllerOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Set_GearEnableOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Set_GearEnableOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_HighBeam
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_HighBeam@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_BlinkerLeft
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_BlinkerLeft@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_BlinkerRight
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_BlinkerRight@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_LWIQbit_SteeringWheelAngle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_LWIQbit_SteeringWheelAngle@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_LWI_SteeringWheelAngle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_LWI_SteeringWheelAngle@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_LWIVZ_SteeringWheelAngle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_LWIVZ_SteeringWheelAngle@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_LWIVZ_SteeringWheelAngle_Speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_LWIVZ_SteeringWheelAngle_Speed@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_LWI_SteeringWheelAngle_Speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_LWI_SteeringWheelAngle_Speed@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Steering_Angle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Steering_Angle@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_Fuel
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single_liter
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_Fuel@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_AcceleratorRawValur
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_AcceleratorRawValur@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SteeringWheelRateOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@SteeringWheelRateOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Steering_Set_PosOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Steering_Set_PosOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Steering_ControlModeOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Steering_ControlModeOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Steering_ResetCommandOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Steering_ResetCommandOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH9Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH9Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH10Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH10Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH5Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH5Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH6Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH6Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH7Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH7Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH8Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH8Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH1Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH1Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH2Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH2Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH3Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH3Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_CH4Current
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_CH4Current@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_rxESPBrakePressure
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_rxESPBrakePressure@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_rxACC
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_rxACC@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_Fuel_ratio
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single_liter
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_Fuel_ratio@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Steering_Angle_Speed
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Steering_Angle_Speed@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      gear_cnt
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@gear_cnt@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_GearLevel
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_GearLevel@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_FrontwheelMsg_Freq
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_FrontwheelMsg_Freq@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_filtered_ACC
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_filtered_ACC@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_EPASsetsteer
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_EPASsetsteer@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_EPASspeedlimit
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      Ecotron_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_EPASspeedlimit@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_CurrentGear
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_CurrentGear@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_StartStop
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_StartStop@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status1
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status1@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status2
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status2@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status3
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status3@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status4
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status4@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status5
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status5@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status6
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status6@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status7
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status7@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status8
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status8@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status9
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status9@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Status10
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Status10@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PDS_Errors
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PDS_Errors@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_blinker
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_blinker@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_headlight
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_headlight@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_wiper
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_wiper@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_gear
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_gear@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_mode
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_mode@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_handBrake
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_handBrake@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PC_LongMode
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PC_LongMode@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Brake_ResetOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Brake_ResetOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Set_GearOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Set_GearOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_EPASmode
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_EPASmode@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Diag_isMotorrunning
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Diag_isMotorrunning@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Diag_KL75
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Diag_KL75@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Diag_PDS_HeartbeatErr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Diag_PDS_HeartbeatErr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Diag_PDS_BUSErr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Diag_PDS_BUSErr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Diag_By_wirePowerErr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Diag_By_wirePowerErr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Diag_EPASPowerErr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Diag_EPASPowerErr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Diag_BrakePowerErr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Diag_BrakePowerErr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_MotorConnection
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_MotorConnection@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_OverCurrent
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_OverCurrent@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_AngleSensorConnection
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_AngleSensorConnection@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_DriverIntervention
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_DriverIntervention@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_ECUReset
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_ECUReset@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_UnderVoltage
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_UnderVoltage@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_MotorConnection
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_MotorConnection@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_OverCurrent
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_OverCurrent@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_AngleSensorConnection
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_AngleSensorConnection@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_DriverIntervention
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_DriverIntervention@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_ECUReset
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_ECUReset@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_UnderVoltage
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_UnderVoltage@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_CalibrationErr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_CalibrationErr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BBW_OnCalibration
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BBW_OnCalibration@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPAS_DriverIntervention_overrideOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EPAS_DriverIntervention_overrideOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_PCheardbeatOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_PCheardbeatOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_Errors
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_Errors@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_otonomEnableOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_otonomEnableOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_otonomDisableOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_otonomDisableOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Button_Hazard_LightOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Button_Hazard_LightOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Button_Headlight_FlasherOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Button_Headlight_FlasherOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Button_HighBeamOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Button_HighBeamOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Button_Left_BlinkerOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Button_Left_BlinkerOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Button_Right_BlinkerOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Button_Right_BlinkerOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Buzz_controlOvrMsr
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@Buzz_controlOvrMsr@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PwrM_flgKeyOnDelay
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PwrM_flgKeyOnDelay@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PwrM_flgKeyOnRaw
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@PwrM_flgKeyOnRaw@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_Mode
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_Mode@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_stopmode
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_stopmode@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      debug_EPAS_ECU_reset
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@debug_EPAS_ECU_reset@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      GOLF_HazardLight
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      Ecotron_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@GOLF_HazardLight@ */
+    /end MEASUREMENT
+
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      Ecotron_CM_single
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%8.6"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      Ecotron_CM_boolean
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%1.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      Ecotron_CM_uint8
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%3.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      Ecotron_CM_uint32
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%10.0"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      Ecotron_CM_single_liter
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%8.6"
+      /* Units                  */      "liter"
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+
+    /begin GROUP 
+      /* Name                   */       Ecotron
+      /* Long identifier        */       "Ecotron"
+      /* Root                    */       ROOT
+      /begin SUB_GROUP
+        Root_Input
+        Root_Main_
+        Root_Power_Management_Example
+        Root_Subsystem4
+      /end SUB_GROUP
+      /begin REF_CHARACTERISTIC
+        CANA_recover
+        CANB_recover
+        CANC_recover
+      /end REF_CHARACTERISTIC
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root_Input
+      /* Long identifier        */       "Ecotron/Input"
+      /begin SUB_GROUP
+        S2_By_wire
+        S2_Golf
+        S2_PC
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root_Main_
+      /* Long identifier        */       "Ecotron/Main "
+      /begin SUB_GROUP
+        S3_Err_Handler
+        S3_Gear
+        S3_LateralControl
+        S3_LongControl_
+        S3_Mode_Select
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root_Power_Management_Example
+      /* Long identifier        */       "Ecotron/Power Management Example"
+      /begin SUB_GROUP
+        S4_Power_Off_Management
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root_Subsystem4
+      /* Long identifier        */       "Ecotron/Subsystem4"
+      /begin SUB_GROUP
+        S8_Brake
+        S8_Button_cntrl_
+        S8_Gas
+        S8_Steering_Control_
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S2_By_wire
+      /* Long identifier        */       "Ecotron/Input/By-wire"
+      /begin SUB_GROUP
+        S10_PDS
+        S10_Robeff_Brake_ECU
+        S10_Robeff_EPAS_ECU
+        S10_Throttle_Controller
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S2_Golf
+      /* Long identifier        */       "Ecotron/Input/Golf"
+      /begin SUB_GROUP
+        S11_BCM_01
+        S11_Brake
+        S11_EPB_01
+        S11_ESP_05
+        S11_Gateway_72
+        S11_Getriebe_1
+        S11_Getriebe_11
+        S11_Getriebe_2
+        S11_Kombi_02
+        S11_LWl
+        S11_Motor_11
+        S11_Motor_12
+        S11_Motor_14
+        S11_Motor_20
+        S11_Subsystem
+        S11_WheelSpeed
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S2_PC
+      /* Long identifier        */       "Ecotron/Input/PC"
+      /begin SUB_GROUP
+        S12_FrontWheelCommands
+        S12_LongitudinalCommands
+        S12_LongitudinalCommandsV2
+        S12_Vehicle_Commands
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S3_Err_Handler
+      /* Long identifier        */       "Ecotron/Main /Err Handler"
+      /begin SUB_GROUP
+        S193_Check_PDS_Errors
+        S193_MotorStatus
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S3_Gear
+      /* Long identifier        */       "Ecotron/Main /Gear"
+      /begin SUB_GROUP
+        S194_Gear_Control
+        S194__Override_Probe
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S3_LateralControl
+      /* Long identifier        */       "Ecotron/Main /LateralControl"
+      /begin REF_CHARACTERISTIC
+        EPAS_MaxSpeed
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        debug_EPAS_ECU_reset
+        debug_EPASmode
+        debug_EPASsetsteer
+        debug_EPASspeedlimit
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S3_LongControl_
+      /* Long identifier        */       "Ecotron/Main /LongControl "
+      /begin SUB_GROUP
+        S196_ACC_Control
+        S196_Brake_Calib_logic
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S3_Mode_Select
+      /* Long identifier        */       "Ecotron/Main /Mode Select"
+      /begin SUB_GROUP
+        S197__Override_Probe
+        S197__Override_Probe1
+        S197__Override_Probe2
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        debug_Errors
+        debug_Mode
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S4_Power_Off_Management
+      /* Long identifier        */       "Ecotron/Power Management Example/Power Off Management"
+      /begin SUB_GROUP
+        S411_Get_flgKeyOn
+        S411_TOfD_xxxx1
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S8_Brake
+      /* Long identifier        */       "Ecotron/Subsystem4/Brake"
+      /begin SUB_GROUP
+        S436__Override_Probe
+        S436__Override_Probe1
+      /end SUB_GROUP
+      /begin REF_CHARACTERISTIC
+        Brake_ControlMode
+        Brake_SetDuty
+      /end REF_CHARACTERISTIC
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S8_Button_cntrl_
+      /* Long identifier        */       "Ecotron/Subsystem4/Button cntrl "
+      /begin SUB_GROUP
+        S437_Subsystem4
+        S437__Override_Probe
+        S437__Override_Probe1
+        S437__Override_Probe2
+        S437__Override_Probe3
+        S437__Override_Probe4
+        S437__Override_Probe5
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S8_Gas
+      /* Long identifier        */       "Ecotron/Subsystem4/Gas"
+      /begin SUB_GROUP
+        S438__Override_Probe
+        S438__Override_Probe1
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S8_Steering_Control_
+      /* Long identifier        */       "Ecotron/Subsystem4/Steering Control "
+      /begin SUB_GROUP
+        S442__Override_Probe
+        S442__Override_Probe1
+        S442__Override_Probe2
+        S442__Override_Probe3
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S10_PDS
+      /* Long identifier        */       "Ecotron/Input/By-wire/PDS"
+      /begin SUB_GROUP
+        S13_Subsystem
+        S13_Subsystem1
+        S13_Subsystem2
+        S13_Subsystem3
+        S13_Subsystem4
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S10_Robeff_Brake_ECU
+      /* Long identifier        */       "Ecotron/Input/By-wire/Robeff Brake ECU"
+      /begin SUB_GROUP
+        S14_Robeff_Brake_FbMsg1
+        S14_Robeff_Brake_FbMsg2
+        S14_Robeff_Brake_FbMsg3
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S10_Robeff_EPAS_ECU
+      /* Long identifier        */       "Ecotron/Input/By-wire/Robeff EPAS ECU"
+      /begin SUB_GROUP
+        S15_Robeff_EPAS_FbMsg1
+        S15_Robeff_EPAS_FbMsg2
+        S15_Robeff_EPAS_FbMsg3
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S10_Throttle_Controller
+      /* Long identifier        */       "Ecotron/Input/By-wire/Throttle Controller"
+      /begin REF_MEASUREMENT
+        THROTTLE_CurrentPedalPos
+        THROTTLE_ECUTimeout
+        THROTTLE_PedalConnectionError
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_BCM_01
+      /* Long identifier        */       "Ecotron/Input/Golf/BCM_01"
+      /begin SUB_GROUP
+        S100_Subsystem
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Brake
+      /* Long identifier        */       "Ecotron/Input/Golf/Brake"
+      /begin REF_MEASUREMENT
+        GOLF_BrakePedalPos
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_EPB_01
+      /* Long identifier        */       "Ecotron/Input/Golf/EPB_01"
+      /begin REF_MEASUREMENT
+        GOLF_HandBrakeStatus
+        GOLF_LongitudinalAcceleration
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_ESP_05
+      /* Long identifier        */       "Ecotron/Input/Golf/ESP_05"
+      /begin REF_MEASUREMENT
+        GOLF_rxESPBrakePressure
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Gateway_72
+      /* Long identifier        */       "Ecotron/Input/Golf/Gateway_72"
+      /begin REF_MEASUREMENT
+        GOLF_BlinkerLeft
+        GOLF_BlinkerRight
+        GOLF_HighBeam
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Getriebe_1
+      /* Long identifier        */       "Ecotron/Input/Golf/Getriebe_1"
+      /begin REF_MEASUREMENT
+        GOLF_rxACC
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Getriebe_11
+      /* Long identifier        */       "Ecotron/Input/Golf/Getriebe_11"
+      /begin REF_MEASUREMENT
+        GOLF_GearLevel
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Getriebe_2
+      /* Long identifier        */       "Ecotron/Input/Golf/Getriebe_2"
+      /begin REF_MEASUREMENT
+        GOLF_rxPitch
+        GOLF_rxVehiclemass
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Kombi_02
+      /* Long identifier        */       "Ecotron/Input/Golf/Kombi_02"
+      /begin REF_MEASUREMENT
+        GOLF_Fuel
+        GOLF_Fuel_ratio
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_LWl
+      /* Long identifier        */       "Ecotron/Input/Golf/LWl"
+      /begin REF_MEASUREMENT
+        GOLF_LWIQbit_SteeringWheelAngle
+        GOLF_LWIVZ_SteeringWheelAngle
+        GOLF_LWIVZ_SteeringWheelAngle_Speed
+        GOLF_LWI_SteeringWheelAngle
+        GOLF_LWI_SteeringWheelAngle_Speed
+        Steering_Angle
+        Steering_Angle_Speed
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Motor_11
+      /* Long identifier        */       "Ecotron/Input/Golf/Motor_11"
+      /begin REF_MEASUREMENT
+        GOLF_MotorTorque_filtered
+        GOLF_MotorTorque_raw
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Motor_12
+      /* Long identifier        */       "Ecotron/Input/Golf/Motor_12"
+      /begin REF_MEASUREMENT
+        GOLF_MotorRPM
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Motor_14
+      /* Long identifier        */       "Ecotron/Input/Golf/Motor_14"
+      /begin REF_MEASUREMENT
+        GOLF_KL75
+        GOLF_StartStop
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Motor_20
+      /* Long identifier        */       "Ecotron/Input/Golf/Motor_20"
+      /begin REF_MEASUREMENT
+        GOLF_AcceleratorRawValur
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_Subsystem
+      /* Long identifier        */       "Ecotron/Input/Golf/Subsystem"
+      /begin REF_MEASUREMENT
+        GOLF_CurrentGear
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S11_WheelSpeed
+      /* Long identifier        */       "Ecotron/Input/Golf/WheelSpeed"
+      /begin REF_MEASUREMENT
+        GOLF_BLWheelSpeed
+        GOLF_BRWheelSpeed
+        GOLF_FLWheelSpeed
+        GOLF_FRWheelSpeed
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S12_FrontWheelCommands
+      /* Long identifier        */       "Ecotron/Input/PC/FrontWheelCommands"
+      /begin SUB_GROUP
+        S169_Subsystem1
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        PC_FrontwheelMsg_cnt
+        PC_SetFrontWheelAngel_Rate
+        PC_SetFrontWheelAngle
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S12_LongitudinalCommands
+      /* Long identifier        */       "Ecotron/Input/PC/LongitudinalCommands"
+      /begin SUB_GROUP
+        S170__Override_Probe
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        PC_SetLimitVel
+        PC_SetLongAcc
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S12_LongitudinalCommandsV2
+      /* Long identifier        */       "Ecotron/Input/PC/LongitudinalCommandsV2"
+      /begin REF_MEASUREMENT
+        PC_SetBrakePos
+        PC_SetGasPos
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S12_Vehicle_Commands
+      /* Long identifier        */       "Ecotron/Input/PC/Vehicle_Commands"
+      /begin REF_MEASUREMENT
+        PC_LongMode
+        PC_blinker
+        PC_gear
+        PC_handBrake
+        PC_headlight
+        PC_mode
+        PC_wiper
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S193_Check_PDS_Errors
+      /* Long identifier        */       "Ecotron/Main /Err Handler/Check PDS Errors"
+      /begin REF_MEASUREMENT
+        Diag_BrakePowerErr
+        Diag_By_wirePowerErr
+        Diag_EPASPowerErr
+        Diag_PDS_BUSErr
+        Diag_PDS_HeartbeatErr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S193_MotorStatus
+      /* Long identifier        */       "Ecotron/Main /Err Handler/MotorStatus"
+      /begin REF_MEASUREMENT
+        Diag_KL75
+        Diag_isMotorrunning
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S194__Override_Probe
+      /* Long identifier        */       "Ecotron/Main /Gear/ Override Probe"
+      /begin REF_CHARACTERISTIC
+        Set_GearEnableOvrCal_val
+        Set_GearEnableOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Set_GearEnableOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S194_Gear_Control
+      /* Long identifier        */       "Ecotron/Main /Gear/Gear_Control"
+      /begin SUB_GROUP
+        S228__Override_Probe
+      /end SUB_GROUP
+      /begin REF_CHARACTERISTIC
+        Delay
+        interval
+        interval2
+        repeat
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        gear_cnt
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S196_ACC_Control
+      /* Long identifier        */       "Ecotron/Main /LongControl /ACC Control"
+      /begin SUB_GROUP
+        S239_Fcalculator_
+        S239_StopModeDesicion
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S196_Brake_Calib_logic
+      /* Long identifier        */       "Ecotron/Main /LongControl /Brake Calib logic"
+      /begin SUB_GROUP
+        S240__Override_Probe
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S197__Override_Probe
+      /* Long identifier        */       "Ecotron/Main /Mode Select/ Override Probe"
+      /begin REF_CHARACTERISTIC
+        debug_otonomEnableOvrCal_val
+        debug_otonomEnableOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        debug_otonomEnableOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S197__Override_Probe1
+      /* Long identifier        */       "Ecotron/Main /Mode Select/ Override Probe1"
+      /begin REF_CHARACTERISTIC
+        debug_otonomDisableOvrCal_val
+        debug_otonomDisableOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        debug_otonomDisableOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S197__Override_Probe2
+      /* Long identifier        */       "Ecotron/Main /Mode Select/ Override Probe2"
+      /begin REF_CHARACTERISTIC
+        debug_PCheardbeatOvrCal_val
+        debug_PCheardbeatOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        debug_PCheardbeatOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S411_Get_flgKeyOn
+      /* Long identifier        */       "Ecotron/Power Management Example/Power Off Management/Get flgKeyOn"
+      /begin REF_MEASUREMENT
+        PwrM_flgKeyOnRaw
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S411_TOfD_xxxx1
+      /* Long identifier        */       "Ecotron/Power Management Example/Power Off Management/TOfD_xxxx1"
+      /begin REF_MEASUREMENT
+        PwrM_flgKeyOnDelay
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S436__Override_Probe
+      /* Long identifier        */       "Ecotron/Subsystem4/Brake/ Override Probe"
+      /begin REF_CHARACTERISTIC
+        Set_Brake_PosOvrCal_val
+        Set_Brake_PosOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Set_Brake_PosOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S436__Override_Probe1
+      /* Long identifier        */       "Ecotron/Subsystem4/Brake/ Override Probe1"
+      /begin REF_CHARACTERISTIC
+        Brake_ResetOvrCal_val
+        Brake_ResetOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Brake_ResetOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S437__Override_Probe
+      /* Long identifier        */       "Ecotron/Subsystem4/Button cntrl / Override Probe"
+      /begin REF_CHARACTERISTIC
+        Button_Hazard_LightOvrCal_val
+        Button_Hazard_LightOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Button_Hazard_LightOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S437__Override_Probe1
+      /* Long identifier        */       "Ecotron/Subsystem4/Button cntrl / Override Probe1"
+      /begin REF_CHARACTERISTIC
+        Button_Left_BlinkerOvrCal_val
+        Button_Left_BlinkerOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Button_Left_BlinkerOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S437__Override_Probe2
+      /* Long identifier        */       "Ecotron/Subsystem4/Button cntrl / Override Probe2"
+      /begin REF_CHARACTERISTIC
+        Button_Right_BlinkerOvrCal_val
+        Button_Right_BlinkerOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Button_Right_BlinkerOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S437__Override_Probe3
+      /* Long identifier        */       "Ecotron/Subsystem4/Button cntrl / Override Probe3"
+      /begin REF_CHARACTERISTIC
+        Button_HighBeamOvrCal_val
+        Button_HighBeamOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Button_HighBeamOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S437__Override_Probe4
+      /* Long identifier        */       "Ecotron/Subsystem4/Button cntrl / Override Probe4"
+      /begin REF_CHARACTERISTIC
+        Button_Headlight_FlasherOvrCal_val
+        Button_Headlight_FlasherOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Button_Headlight_FlasherOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S437__Override_Probe5
+      /* Long identifier        */       "Ecotron/Subsystem4/Button cntrl / Override Probe5"
+      /begin REF_CHARACTERISTIC
+        Buzz_controlOvrCal_val
+        Buzz_controlOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Buzz_controlOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S437_Subsystem4
+      /* Long identifier        */       "Ecotron/Subsystem4/Button cntrl /Subsystem4"
+      /begin REF_CHARACTERISTIC
+        Buzz_falling_duration
+        Buzz_falling_offduration
+        Buzz_rising_duration
+      /end REF_CHARACTERISTIC
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S438__Override_Probe
+      /* Long identifier        */       "Ecotron/Subsystem4/Gas/ Override Probe"
+      /begin REF_CHARACTERISTIC
+        Set_GasOvrCal_val
+        Set_GasOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Set_GasOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S438__Override_Probe1
+      /* Long identifier        */       "Ecotron/Subsystem4/Gas/ Override Probe1"
+      /begin REF_CHARACTERISTIC
+        Activate_ThrottleControllerOvrCal_val
+        Activate_ThrottleControllerOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Activate_ThrottleControllerOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S442__Override_Probe
+      /* Long identifier        */       "Ecotron/Subsystem4/Steering Control / Override Probe"
+      /begin REF_CHARACTERISTIC
+        SteeringWheelRateOvrCal_val
+        SteeringWheelRateOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        SteeringWheelRateOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S442__Override_Probe1
+      /* Long identifier        */       "Ecotron/Subsystem4/Steering Control / Override Probe1"
+      /begin REF_CHARACTERISTIC
+        Steering_Set_PosOvrCal_val
+        Steering_Set_PosOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Steering_Set_PosOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S442__Override_Probe2
+      /* Long identifier        */       "Ecotron/Subsystem4/Steering Control / Override Probe2"
+      /begin REF_CHARACTERISTIC
+        Steering_ControlModeOvrCal_val
+        Steering_ControlModeOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Steering_ControlModeOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S442__Override_Probe3
+      /* Long identifier        */       "Ecotron/Subsystem4/Steering Control / Override Probe3"
+      /begin REF_CHARACTERISTIC
+        Steering_ResetCommandOvrCal_val
+        Steering_ResetCommandOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Steering_ResetCommandOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S13_Subsystem
+      /* Long identifier        */       "Ecotron/Input/By-wire/PDS/Subsystem"
+      /begin REF_MEASUREMENT
+        PDS_Errors
+        PDS_Status1
+        PDS_Status10
+        PDS_Status2
+        PDS_Status3
+        PDS_Status4
+        PDS_Status5
+        PDS_Status6
+        PDS_Status7
+        PDS_Status8
+        PDS_Status9
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S13_Subsystem1
+      /* Long identifier        */       "Ecotron/Input/By-wire/PDS/Subsystem1"
+      /begin REF_MEASUREMENT
+        PDS_CH10Current
+        PDS_CH9Current
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S13_Subsystem2
+      /* Long identifier        */       "Ecotron/Input/By-wire/PDS/Subsystem2"
+      /begin REF_MEASUREMENT
+        PDS_CH5Current
+        PDS_CH6Current
+        PDS_CH7Current
+        PDS_CH8Current
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S13_Subsystem3
+      /* Long identifier        */       "Ecotron/Input/By-wire/PDS/Subsystem3"
+      /begin REF_MEASUREMENT
+        PDS_CH1Current
+        PDS_CH2Current
+        PDS_CH3Current
+        PDS_CH4Current
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S13_Subsystem4
+      /* Long identifier        */       "Ecotron/Input/By-wire/PDS/Subsystem4"
+      /begin REF_MEASUREMENT
+        PDS_BoardTemp
+        PDS_InputCurrent
+        PDS_InputVoltage
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S14_Robeff_Brake_FbMsg1
+      /* Long identifier        */       "Ecotron/Input/By-wire/Robeff Brake ECU/Robeff Brake FbMsg1"
+      /begin REF_MEASUREMENT
+        BBW_BrakePos
+        BBW_ReferenceBrakePos
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S14_Robeff_Brake_FbMsg2
+      /* Long identifier        */       "Ecotron/Input/By-wire/Robeff Brake ECU/Robeff Brake FbMsg2"
+      /begin REF_MEASUREMENT
+        BBW_BoxTemp
+        BBW_MotorCurrent
+        BBW_MotorDuty
+        BBW_MotorVoltage
+        BBW_RawTorqueA
+        BBW_RawTorqueB
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S14_Robeff_Brake_FbMsg3
+      /* Long identifier        */       "Ecotron/Input/By-wire/Robeff Brake ECU/Robeff Brake FbMsg3"
+      /begin REF_MEASUREMENT
+        BBW_AngleSensorConnection
+        BBW_CalibrationErr
+        BBW_DriverIntervention
+        BBW_ECUReset
+        BBW_MotorConnection
+        BBW_OnCalibration
+        BBW_OverCurrent
+        BBW_UnderVoltage
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S15_Robeff_EPAS_FbMsg1
+      /* Long identifier        */       "Ecotron/Input/By-wire/Robeff EPAS ECU/Robeff EPAS FbMsg1"
+      /begin REF_MEASUREMENT
+        EPAS_ActualSteeringPos
+        EPAS_RefSteerPos
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S15_Robeff_EPAS_FbMsg2
+      /* Long identifier        */       "Ecotron/Input/By-wire/Robeff EPAS ECU/Robeff EPAS FbMsg2"
+      /begin REF_MEASUREMENT
+        EPAS_BoxTemp
+        EPAS_MotorCurrent
+        EPAS_MotorDuty
+        EPAS_MotorVoltage
+        EPAS_TorqueA
+        EPAS_TorqueB
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S15_Robeff_EPAS_FbMsg3
+      /* Long identifier        */       "Ecotron/Input/By-wire/Robeff EPAS ECU/Robeff EPAS FbMsg3"
+      /begin SUB_GROUP
+        S77__Override_Probe
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        EPAS_AngleSensorConnection
+        EPAS_DriverIntervention
+        EPAS_ECUReset
+        EPAS_MotorConnection
+        EPAS_OverCurrent
+        EPAS_UnderVoltage
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S100_Subsystem
+      /* Long identifier        */       "Ecotron/Input/Golf/BCM_01/Subsystem"
+      /begin REF_MEASUREMENT
+        GOLF_HazardLight
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S169_Subsystem1
+      /* Long identifier        */       "Ecotron/Input/PC/FrontWheelCommands/Subsystem1"
+      /begin REF_MEASUREMENT
+        PC_FrontwheelMsg_Freq
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S170__Override_Probe
+      /* Long identifier        */       "Ecotron/Input/PC/LongitudinalCommands/ Override Probe"
+      /begin REF_CHARACTERISTIC
+        SetACCOvrCal_val
+        SetACCOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        SetACCOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S228__Override_Probe
+      /* Long identifier        */       "Ecotron/Main /Gear/Gear_Control/ Override Probe"
+      /begin REF_CHARACTERISTIC
+        Set_GearOvrCal_val
+        Set_GearOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Set_GearOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S239_Fcalculator_
+      /* Long identifier        */       "Ecotron/Main /LongControl /ACC Control/Fcalculator "
+      /begin SUB_GROUP
+        S241_Acceleration1
+        S241_Subsystem
+        S241_Subsystem1
+      /end SUB_GROUP
+      /begin REF_CHARACTERISTIC
+        Compensation_I
+        Compensation_P
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        debug_Fr_request
+        debug_set_brake
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S239_StopModeDesicion
+      /* Long identifier        */       "Ecotron/Main /LongControl /ACC Control/StopModeDesicion"
+      /begin REF_MEASUREMENT
+        debug_stopmode
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S240__Override_Probe
+      /* Long identifier        */       "Ecotron/Main /LongControl /Brake Calib logic/ Override Probe"
+      /begin REF_CHARACTERISTIC
+        Brake_CalibCMDOvrCal_val
+        Brake_CalibCMDOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Brake_CalibCMDOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S77__Override_Probe
+      /* Long identifier        */       "Ecotron/Input/By-wire/Robeff EPAS ECU/Robeff EPAS FbMsg3/ Override Probe"
+      /begin REF_CHARACTERISTIC
+        EPAS_DriverIntervention_overrideOvrCal_val
+        EPAS_DriverIntervention_overrideOvrEn_val
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        EPAS_DriverIntervention_overrideOvrMsr
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S241_Acceleration1
+      /* Long identifier        */       "Ecotron/Main /LongControl /ACC Control/Fcalculator /Acceleration1"
+      /begin REF_MEASUREMENT
+        debug_filtered_ACC
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S241_Subsystem
+      /* Long identifier        */       "Ecotron/Main /LongControl /ACC Control/Fcalculator /Subsystem"
+      /begin REF_CHARACTERISTIC
+        Torque_PID_D
+        Torque_PID_I
+        Torque_PID_P
+      /end REF_CHARACTERISTIC
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S241_Subsystem1
+      /* Long identifier        */       "Ecotron/Main /LongControl /ACC Control/Fcalculator /Subsystem1"
+      /begin REF_CHARACTERISTIC
+        Brake_PID_D
+        Brake_PID_I
+        Brake_PID_P
+      /end REF_CHARACTERISTIC
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S273_Enabled
+      /* Long identifier        */       "Ecotron/Main /LongControl /ACC Control/Fcalculator /Discrete PID Controller/Saturation/Enabled"
+      /begin REF_MEASUREMENT
+        debug_CompensationPID_out
+      /end REF_MEASUREMENT
+    /end GROUP
+
+/end MODULE
+  
+  
+/end PROJECT
+/* (add any file trailer comments here) */
+/* EOF Ecotron.a2l */
+

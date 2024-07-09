@@ -1,0 +1,26 @@
+%implements s86_b0_mueri_2_SystemReset "C"
+
+%function SystemReset(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+DW_l.PowerOffManagement_PREV_T = %<(SLibCG_SE(LibGetClockTick(1)))>;
+/* InitializeConditions for UnitDelay: '<S411>/Unit Delay7' */
+/*@>e70fd*/DW_l./*@>e7f29*/UnitDelay7_DSTATE/*@>c6554*/ = /*@>e339a*/true;
+/* InitializeConditions for UnitDelay: '<S411>/Unit Delay4' */
+/*@>e7103*/DW_l./*@>e7f2c*/UnitDelay4_DSTATE/*@>c6565*/ = /*@>e339b*/true;
+/* InitializeConditions for UnitDelay: '<S411>/Unit Delay5' */
+/*@>e7109*/DW_l./*@>e7f2f*/UnitDelay5_DSTATE/*@>c6576*/ = /*@>e339c*/true;
+/* InitializeConditions for UnitDelay: '<S411>/Unit Delay6' */
+/*@>e710f*/DW_l./*@>e7f32*/UnitDelay6_DSTATE/*@>c6587*/ = /*@>e339d*/true;
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function SystemResetFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void SystemReset(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(2, 2, fcnProtoType)>
+%endfunction

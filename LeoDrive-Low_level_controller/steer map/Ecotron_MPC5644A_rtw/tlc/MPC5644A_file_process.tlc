@@ -1,0 +1,36 @@
+%selectfile NULL_FILE
+
+%%  Uncomment this TLC line to execute the example
+%%   ||   ||
+%%   ||   ||
+%%   \/   \/
+
+
+%openfile buf
+	#include "EcoCoderTypeDef.h"
+	#include "EcoSectionDef.h"  
+%closefile buf
+%assign hFile = LibGetModelDotHFile()
+%<LibSetSourceFileSection(hFile, "Includes", buf)>\
+
+%if !IsModelReferenceTarget()
+  %assign ERTCustomFileTest = TLC_TRUE
+
+  %assign CompiledModel.GenerateSampleERTMain = TLC_FALSE
+
+  %if EXISTS("ERTCustomFileTest") && ERTCustomFileTest == TLC_TRUE
+  
+    %% Need to set the template compliance flag before you can use the API
+    %<LibSetCodeTemplateComplianceLevel(1)>
+
+	%assign strMainAndInitFile=FEVAL("EcoCoderTarget_GetMemberFcn",HCUVersion,"MainAndInitFile")
+%if 0!=ISEMPTY(strMainAndInitFile)
+    %include "ecocoder_mainAndInitV0.tlc"
+%else
+	%include "%<strMainAndInitFile>"
+%endif
+    %<EcoCoderMainAndInitCall()>
+
+  %endif
+%endif
+

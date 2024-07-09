@@ -1,0 +1,532 @@
+%implements s86_b0_mueri_Terminate "C"
+
+%function Terminate(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcTerminateFcnOfS86B3 = OpaqueTLCBlockFcn("Terminate", 86, 3, 3, 14, 0)
+%assign tlcTerminateFcnOfS86B5 = OpaqueTLCBlockFcn("Terminate", 86, 5, 3, 14, 1)
+%assign tlcTerminateFcnOfS86B6 = OpaqueTLCBlockFcn("Terminate", 86, 6, 3, 14, 2)
+%assign tlcTerminateFcnOfS86B7 = OpaqueTLCBlockFcn("Terminate", 86, 7, 3, 14, 3)
+%assign tlcTerminateFcnOfS86B8 = OpaqueTLCBlockFcn("Terminate", 86, 8, 3, 14, 4)
+%assign tlcTerminateFcnOfS86B9 = OpaqueTLCBlockFcn("Terminate", 86, 9, 3, 14, 5)
+%assign tlcTerminateFcnOfS86B10 = OpaqueTLCBlockFcn("Terminate", 86, 10, 3, 14, 6)
+%assign tlcTerminateFcnOfS86B11 = OpaqueTLCBlockFcn("Terminate", 86, 11, 3, 14, 7)
+%assign tlcTerminateFcnOfS86B12 = OpaqueTLCBlockFcn("Terminate", 86, 12, 3, 14, 8)
+%assign tlcTerminateFcnOfS86B17 = OpaqueTLCBlockFcn("Terminate", 86, 17, 3, 14, 9)
+%assign tlcTerminateFcnOfS86B18 = OpaqueTLCBlockFcn("Terminate", 86, 18, 3, 14, 10)
+%assign tlcTerminateFcnOfS86B19 = OpaqueTLCBlockFcn("Terminate", 86, 19, 3, 14, 11)
+%assign tlcTerminateFcnOfS86B20 = OpaqueTLCBlockFcn("Terminate", 86, 20, 3, 14, 12)
+%assign tlcTerminateFcnOfS86B22 = OpaqueTLCBlockFcn("Terminate", 86, 22, 3, 14, 13)
+%assign tlcTerminateFcnOfS86B23 = OpaqueTLCBlockFcn("Terminate", 86, 23, 3, 14, 14)
+%assign tlcTerminateFcnOfS86B24 = OpaqueTLCBlockFcn("Terminate", 86, 24, 3, 14, 15)
+%assign tlcTerminateFcnOfS86B32 = OpaqueTLCBlockFcn("Terminate", 86, 32, 3, 14, 16)
+%assign tlcTerminateFcnOfS86B34 = OpaqueTLCBlockFcn("Terminate", 86, 34, 3, 14, 17)
+%assign tlcTerminateFcnOfS86B39 = OpaqueTLCBlockFcn("Terminate", 86, 39, 3, 14, 18)
+%assign tlcTerminateFcnOfS86B40 = OpaqueTLCBlockFcn("Terminate", 86, 40, 3, 14, 19)
+%assign tlcTerminateFcnOfS86B47 = OpaqueTLCBlockFcn("Terminate", 86, 47, 3, 14, 20)
+%assign tlcTerminateFcnOfS86B51 = OpaqueTLCBlockFcn("Terminate", 86, 51, 3, 14, 21)
+%assign tlcTerminateFcnOfS74B0 = OpaqueTLCBlockFcn("Terminate", 74, 0, 3, 14, 22)
+%assign tlcTerminateFcnOfS75B0 = OpaqueTLCBlockFcn("Terminate", 75, 0, 3, 14, 23)
+%assign tlcTerminateFcnOfS76B0 = OpaqueTLCBlockFcn("Terminate", 76, 0, 3, 14, 24)
+%assign tlcTerminateFcnOfS77B0 = OpaqueTLCBlockFcn("Terminate", 77, 0, 3, 14, 25)
+%assign tlcTerminateFcnOfS78B0 = OpaqueTLCBlockFcn("Terminate", 78, 0, 3, 14, 26)
+%assign tlcTerminateFcnOfS79B0 = OpaqueTLCBlockFcn("Terminate", 79, 0, 3, 14, 27)
+%assign tlcTerminateFcnOfS86B107 = OpaqueTLCBlockFcn("Terminate", 86, 107, 3, 14, 28)
+%assign tlcTerminateFcnOfS86B109 = OpaqueTLCBlockFcn("Terminate", 86, 109, 3, 14, 29)
+%assign tlcTerminateFcnOfS86B110 = OpaqueTLCBlockFcn("Terminate", 86, 110, 3, 14, 30)
+%assign tlcTerminateFcnOfS86B111 = OpaqueTLCBlockFcn("Terminate", 86, 111, 3, 14, 31)
+%assign tlcTerminateFcnOfS81B0 = OpaqueTLCBlockFcn("Terminate", 81, 0, 3, 14, 32)
+%assign tlcTerminateFcnOfS86B124 = OpaqueTLCBlockFcn("Terminate", 86, 124, 3, 14, 33)
+%assign tlcTerminateFcnOfS86B125 = OpaqueTLCBlockFcn("Terminate", 86, 125, 3, 14, 34)
+%assign tlcTerminateFcnOfS86B126 = OpaqueTLCBlockFcn("Terminate", 86, 126, 3, 14, 35)
+%assign tlcTerminateFcnOfS86B127 = OpaqueTLCBlockFcn("Terminate", 86, 127, 3, 14, 36)
+%assign tlcTerminateFcnOfS86B128 = OpaqueTLCBlockFcn("Terminate", 86, 128, 3, 14, 37)
+%assign tlcTerminateFcnOfS86B129 = OpaqueTLCBlockFcn("Terminate", 86, 129, 3, 14, 38)
+%assign tlcTerminateFcnOfS86B130 = OpaqueTLCBlockFcn("Terminate", 86, 130, 3, 14, 39)
+%assign tlcTerminateFcnOfS86B131 = OpaqueTLCBlockFcn("Terminate", 86, 131, 3, 14, 40)
+%assign tlcTerminateFcnOfS4B0 = OpaqueTLCBlockFcn("Terminate", 4, 0, 3, 14, 41)
+%assign tlcTerminateFcnOfS86B133 = OpaqueTLCBlockFcn("Terminate", 86, 133, 3, 14, 42)
+%assign tlcTerminateFcnOfS5B0 = OpaqueTLCBlockFcn("Terminate", 5, 0, 3, 14, 43)
+%assign tlcTerminateFcnOfS86B155 = OpaqueTLCBlockFcn("Terminate", 86, 155, 3, 14, 44)
+%assign tlcTerminateFcnOfS86B156 = OpaqueTLCBlockFcn("Terminate", 86, 156, 3, 14, 45)
+%assign tlcTerminateFcnOfS86B157 = OpaqueTLCBlockFcn("Terminate", 86, 157, 3, 14, 46)
+%assign tlcTerminateFcnOfS86B158 = OpaqueTLCBlockFcn("Terminate", 86, 158, 3, 14, 47)
+%assign tlcTerminateFcnOfS86B159 = OpaqueTLCBlockFcn("Terminate", 86, 159, 3, 14, 48)
+%assign tlcTerminateFcnOfS86B160 = OpaqueTLCBlockFcn("Terminate", 86, 160, 3, 14, 49)
+%assign tlcTerminateFcnOfS86B161 = OpaqueTLCBlockFcn("Terminate", 86, 161, 3, 14, 50)
+%assign tlcTerminateFcnOfS86B162 = OpaqueTLCBlockFcn("Terminate", 86, 162, 3, 14, 51)
+%assign tlcTerminateFcnOfS86B163 = OpaqueTLCBlockFcn("Terminate", 86, 163, 3, 14, 52)
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B3)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S170>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186ad9*/",tlcTerminateFcnOfS86B3,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B5)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S115>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186ae6*/",tlcTerminateFcnOfS86B5,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B6)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S112>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186af2*/",tlcTerminateFcnOfS86B6,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B7)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S113>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186b15*/",tlcTerminateFcnOfS86B7,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B8)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S17>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186b24*/",tlcTerminateFcnOfS86B8,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B9)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S21>/Read CAN Message1' */
+%<SLibCG_DumpSSCode("/*@[186b2b*/",tlcTerminateFcnOfS86B9,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B10)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S16>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186b32*/",tlcTerminateFcnOfS86B10,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B11)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S77>/Read CAN Message3' */
+%<SLibCG_DumpSSCode("/*@[186b3d*/",tlcTerminateFcnOfS86B11,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B12)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S55>/Read CAN Message3' */
+%<SLibCG_DumpSSCode("/*@[186b49*/",tlcTerminateFcnOfS86B12,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B17)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S53>/Read CAN Message2' */
+%<SLibCG_DumpSSCode("/*@[186b4f*/",tlcTerminateFcnOfS86B17,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B18)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S54>/Read CAN Message3' */
+%<SLibCG_DumpSSCode("/*@[186b59*/",tlcTerminateFcnOfS86B18,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B19)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S75>/Read CAN Message2' */
+%<SLibCG_DumpSSCode("/*@[186b5f*/",tlcTerminateFcnOfS86B19,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B20)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S76>/Read CAN Message3' */
+%<SLibCG_DumpSSCode("/*@[186b69*/",tlcTerminateFcnOfS86B20,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B22)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S172>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186b75*/",tlcTerminateFcnOfS86B22,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B23)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S169>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186b7b*/",tlcTerminateFcnOfS86B23,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B24)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S171>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186b81*/",tlcTerminateFcnOfS86B24,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B32)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S103>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186b96*/",tlcTerminateFcnOfS86B32,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B34)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S116>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186b9e*/",tlcTerminateFcnOfS86B34,"/*@]*/")>\
+%endif
+/* Terminate for MATLABSystem: '<S244>/Moving Average1' */
+%<SLibCG_DumpSSCode("/*@[18850f*/",(SLibCGCallSubFcn("matlabCodegenHandle_matlabCodeg", ["&/*@>1971b4*/DW_l./*@>1971b3*/obj"], 3, 14, 0)),"/*@]*/")>;
+/* Terminate for MATLABSystem: '<S244>/Moving Average2' */
+%<SLibCG_DumpSSCode("/*@[188526*/",(SLibCGCallSubFcn("matlabCodegenHandle_matlabCodeg", ["&/*@>1971c1*/DW_l./*@>1971c0*/obj_k"], 3, 14, 1)),"/*@]*/")>;
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B39)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S108>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186baa*/",tlcTerminateFcnOfS86B39,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B40)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S111>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186bb8*/",tlcTerminateFcnOfS86B40,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B47)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S101>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186bbd*/",tlcTerminateFcnOfS86B47,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B51)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S100>/Read CAN Message1' */
+%<SLibCG_DumpSSCode("/*@[186bdb*/",tlcTerminateFcnOfS86B51,"/*@]*/")>\
+%endif
+%assign   Terminate_open_Drive_86_211 = ""
+%openfile Terminate_open_Drive_86_211
+
+/* Terminate for Enabled SubSystem: '<S439>/Drive ' */
+%closefile Terminate_open_Drive_86_211
+
+%assign    Terminate_body_Drive_86_211 = ""
+%openfile  Terminate_body_Drive_86_211
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS74B0)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S467>/Send CAN Message 1' incorporates:
+ *  Constant: '<S467>/Constant'
+ *  Constant: '<S467>/Constant1'
+ *  Constant: '<S467>/Constant2'
+ *  Constant: '<S467>/Constant3'
+ *  Constant: '<S467>/Constant4'
+ *  Constant: '<S467>/Constant5'
+ *  Constant: '<S467>/Constant6'
+ *  Constant: '<S467>/Constant7'
+ *  Constant: '<S467>/Constant8'
+ */
+%<SLibCG_DumpSSCode("/*@[186be5*/",tlcTerminateFcnOfS74B0,"/*@]*/")>\
+%endif
+%closefile Terminate_body_Drive_86_211
+
+%assign    Terminate_close_Drive_86_211 = ""
+%openfile  Terminate_close_Drive_86_211
+
+/* End of Terminate for SubSystem: '<S439>/Drive ' */
+%closefile Terminate_close_Drive_86_211
+%<SLibCG_DumpSSCode(Terminate_open_Drive_86_211, Terminate_body_Drive_86_211, Terminate_close_Drive_86_211)>
+
+
+%assign   Terminate_open_Neutral_86_212 = ""
+%openfile Terminate_open_Neutral_86_212
+
+/* Terminate for Enabled SubSystem: '<S439>/Neutral' */
+%closefile Terminate_open_Neutral_86_212
+
+%assign    Terminate_body_Neutral_86_212 = ""
+%openfile  Terminate_body_Neutral_86_212
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS75B0)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S468>/Send CAN Message 1' incorporates:
+ *  Constant: '<S468>/Constant'
+ *  Constant: '<S468>/Constant1'
+ *  Constant: '<S468>/Constant2'
+ *  Constant: '<S468>/Constant3'
+ *  Constant: '<S468>/Constant4'
+ *  Constant: '<S468>/Constant5'
+ *  Constant: '<S468>/Constant6'
+ *  Constant: '<S468>/Constant7'
+ *  Constant: '<S468>/Constant8'
+ */
+%<SLibCG_DumpSSCode("/*@[186bef*/",tlcTerminateFcnOfS75B0,"/*@]*/")>\
+%endif
+%closefile Terminate_body_Neutral_86_212
+
+%assign    Terminate_close_Neutral_86_212 = ""
+%openfile  Terminate_close_Neutral_86_212
+
+/* End of Terminate for SubSystem: '<S439>/Neutral' */
+%closefile Terminate_close_Neutral_86_212
+%<SLibCG_DumpSSCode(Terminate_open_Neutral_86_212, Terminate_body_Neutral_86_212, Terminate_close_Neutral_86_212)>
+
+
+%assign   Terminate_open_Reverse_86_213 = ""
+%openfile Terminate_open_Reverse_86_213
+
+/* Terminate for Triggered SubSystem: '<S439>/Reverse' */
+%closefile Terminate_open_Reverse_86_213
+
+%assign    Terminate_body_Reverse_86_213 = ""
+%openfile  Terminate_body_Reverse_86_213
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS76B0)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S469>/Send CAN Message 1' incorporates:
+ *  Constant: '<S469>/Constant'
+ *  Constant: '<S469>/Constant1'
+ *  Constant: '<S469>/Constant2'
+ *  Constant: '<S469>/Constant3'
+ *  Constant: '<S469>/Constant4'
+ *  Constant: '<S469>/Constant5'
+ *  Constant: '<S469>/Constant6'
+ *  Constant: '<S469>/Constant7'
+ *  Constant: '<S469>/Constant8'
+ */
+%<SLibCG_DumpSSCode("/*@[186bf9*/",tlcTerminateFcnOfS76B0,"/*@]*/")>\
+%endif
+%closefile Terminate_body_Reverse_86_213
+
+%assign    Terminate_close_Reverse_86_213 = ""
+%openfile  Terminate_close_Reverse_86_213
+
+/* End of Terminate for SubSystem: '<S439>/Reverse' */
+%closefile Terminate_close_Reverse_86_213
+%<SLibCG_DumpSSCode(Terminate_open_Reverse_86_213, Terminate_body_Reverse_86_213, Terminate_close_Reverse_86_213)>
+
+
+%assign   Terminate_open_Reverse1_86_214 = ""
+%openfile Terminate_open_Reverse1_86_214
+
+/* Terminate for Triggered SubSystem: '<S439>/Reverse1' */
+%closefile Terminate_open_Reverse1_86_214
+
+%assign    Terminate_body_Reverse1_86_214 = ""
+%openfile  Terminate_body_Reverse1_86_214
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS77B0)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S470>/Send CAN Message 1' incorporates:
+ *  Constant: '<S470>/Constant'
+ *  Constant: '<S470>/Constant1'
+ *  Constant: '<S470>/Constant2'
+ *  Constant: '<S470>/Constant3'
+ *  Constant: '<S470>/Constant4'
+ *  Constant: '<S470>/Constant5'
+ *  Constant: '<S470>/Constant6'
+ *  Constant: '<S470>/Constant7'
+ *  Constant: '<S470>/Constant8'
+ */
+%<SLibCG_DumpSSCode("/*@[186c03*/",tlcTerminateFcnOfS77B0,"/*@]*/")>\
+%endif
+%closefile Terminate_body_Reverse1_86_214
+
+%assign    Terminate_close_Reverse1_86_214 = ""
+%openfile  Terminate_close_Reverse1_86_214
+
+/* End of Terminate for SubSystem: '<S439>/Reverse1' */
+%closefile Terminate_close_Reverse1_86_214
+%<SLibCG_DumpSSCode(Terminate_open_Reverse1_86_214, Terminate_body_Reverse1_86_214, Terminate_close_Reverse1_86_214)>
+
+
+%assign   Terminate_open_Reverse2_86_215 = ""
+%openfile Terminate_open_Reverse2_86_215
+
+/* Terminate for Triggered SubSystem: '<S439>/Reverse2' */
+%closefile Terminate_open_Reverse2_86_215
+
+%assign    Terminate_body_Reverse2_86_215 = ""
+%openfile  Terminate_body_Reverse2_86_215
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS78B0)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S471>/Send CAN Message 1' incorporates:
+ *  Constant: '<S471>/Constant'
+ *  Constant: '<S471>/Constant1'
+ *  Constant: '<S471>/Constant2'
+ *  Constant: '<S471>/Constant3'
+ *  Constant: '<S471>/Constant4'
+ *  Constant: '<S471>/Constant5'
+ *  Constant: '<S471>/Constant6'
+ *  Constant: '<S471>/Constant7'
+ *  Constant: '<S471>/Constant8'
+ */
+%<SLibCG_DumpSSCode("/*@[186c0d*/",tlcTerminateFcnOfS78B0,"/*@]*/")>\
+%endif
+%closefile Terminate_body_Reverse2_86_215
+
+%assign    Terminate_close_Reverse2_86_215 = ""
+%openfile  Terminate_close_Reverse2_86_215
+
+/* End of Terminate for SubSystem: '<S439>/Reverse2' */
+%closefile Terminate_close_Reverse2_86_215
+%<SLibCG_DumpSSCode(Terminate_open_Reverse2_86_215, Terminate_body_Reverse2_86_215, Terminate_close_Reverse2_86_215)>
+
+
+%assign   Terminate_open_Reverse3_86_216 = ""
+%openfile Terminate_open_Reverse3_86_216
+
+/* Terminate for Triggered SubSystem: '<S439>/Reverse3' */
+%closefile Terminate_open_Reverse3_86_216
+
+%assign    Terminate_body_Reverse3_86_216 = ""
+%openfile  Terminate_body_Reverse3_86_216
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS79B0)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S472>/Send CAN Message 1' incorporates:
+ *  Constant: '<S472>/Constant'
+ *  Constant: '<S472>/Constant1'
+ *  Constant: '<S472>/Constant2'
+ *  Constant: '<S472>/Constant3'
+ *  Constant: '<S472>/Constant4'
+ *  Constant: '<S472>/Constant5'
+ *  Constant: '<S472>/Constant6'
+ *  Constant: '<S472>/Constant7'
+ *  Constant: '<S472>/Constant8'
+ */
+%<SLibCG_DumpSSCode("/*@[186c17*/",tlcTerminateFcnOfS79B0,"/*@]*/")>\
+%endif
+%closefile Terminate_body_Reverse3_86_216
+
+%assign    Terminate_close_Reverse3_86_216 = ""
+%openfile  Terminate_close_Reverse3_86_216
+
+/* End of Terminate for SubSystem: '<S439>/Reverse3' */
+%closefile Terminate_close_Reverse3_86_216
+%<SLibCG_DumpSSCode(Terminate_open_Reverse3_86_216, Terminate_body_Reverse3_86_216, Terminate_close_Reverse3_86_216)>
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B107)
+
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S105>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186c3a*/",tlcTerminateFcnOfS86B107,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B109)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S110>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186c48*/",tlcTerminateFcnOfS86B109,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B110)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S109>/Read CAN Message1' */
+%<SLibCG_DumpSSCode("/*@[186c52*/",tlcTerminateFcnOfS86B110,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B111)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S114>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186c61*/",tlcTerminateFcnOfS86B111,"/*@]*/")>\
+%endif
+%assign   Terminate_open_Subsystem_a_86_268 = ""
+%openfile Terminate_open_Subsystem_a_86_268
+
+/* Terminate for Triggered SubSystem: '<S441>/Subsystem' */
+%closefile Terminate_open_Subsystem_a_86_268
+
+%assign    Terminate_body_Subsystem_a_86_268 = ""
+%openfile  Terminate_body_Subsystem_a_86_268
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS81B0)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S476>/Send CAN Message ' */
+%<SLibCG_DumpSSCode("/*@[186c64*/",tlcTerminateFcnOfS81B0,"/*@]*/")>\
+%endif
+%closefile Terminate_body_Subsystem_a_86_268
+
+%assign    Terminate_close_Subsystem_a_86_268 = ""
+%openfile  Terminate_close_Subsystem_a_86_268
+
+/* End of Terminate for SubSystem: '<S441>/Subsystem' */
+%closefile Terminate_close_Subsystem_a_86_268
+%<SLibCG_DumpSSCode(Terminate_open_Subsystem_a_86_268, Terminate_body_Subsystem_a_86_268, Terminate_close_Subsystem_a_86_268)>
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B124)
+
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S18>/Read CAN Message4' */
+%<SLibCG_DumpSSCode("/*@[186c6a*/",tlcTerminateFcnOfS86B124,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B125)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S19>/Read CAN Message3' */
+%<SLibCG_DumpSSCode("/*@[186c72*/",tlcTerminateFcnOfS86B125,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B126)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S20>/Read CAN Message2' */
+%<SLibCG_DumpSSCode("/*@[186c7a*/",tlcTerminateFcnOfS86B126,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B127)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S22>/Read CAN Message5' */
+%<SLibCG_DumpSSCode("/*@[186c82*/",tlcTerminateFcnOfS86B127,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B128)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S104>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186ca9*/",tlcTerminateFcnOfS86B128,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B129)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S106>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186cbd*/",tlcTerminateFcnOfS86B129,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B130)
+/* Terminate for S-Function (ecodoer_readMsg_float): '<S107>/Read CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186ccd*/",tlcTerminateFcnOfS86B130,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B131)
+/* Terminate for S-Function (ecocoder_receive_msg): '<S102>/Receive CAN Message' */
+%<SLibCG_DumpSSCode("/*@[186cd4*/",tlcTerminateFcnOfS86B131,"/*@]*/")>\
+%endif
+%assign   Terminate_open_Subsystem2_86_306 = ""
+%openfile Terminate_open_Subsystem2_86_306
+
+/* Terminate for Triggered SubSystem: '<S102>/Subsystem2' */
+%closefile Terminate_open_Subsystem2_86_306
+
+%assign    Terminate_body_Subsystem2_86_306 = ""
+%openfile  Terminate_body_Subsystem2_86_306
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS4B0)
+/* Terminate for S-Function (CAN_TxData): '<S123>/Send CAN Data' */
+%<SLibCG_DumpSSCode("/*@[186cd6*/",tlcTerminateFcnOfS4B0,"/*@]*/")>\
+%endif
+%closefile Terminate_body_Subsystem2_86_306
+
+%assign    Terminate_close_Subsystem2_86_306 = ""
+%openfile  Terminate_close_Subsystem2_86_306
+
+/* End of Terminate for SubSystem: '<S102>/Subsystem2' */
+%closefile Terminate_close_Subsystem2_86_306
+%<SLibCG_DumpSSCode(Terminate_open_Subsystem2_86_306, Terminate_body_Subsystem2_86_306, Terminate_close_Subsystem2_86_306)>
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B133)
+
+/* Terminate for S-Function (ecocoder_receive_msg): '<S102>/Receive CAN Message1' */
+%<SLibCG_DumpSSCode("/*@[186cdd*/",tlcTerminateFcnOfS86B133,"/*@]*/")>\
+%endif
+%assign   Terminate_open_Subsystem7_86_308 = ""
+%openfile Terminate_open_Subsystem7_86_308
+
+/* Terminate for Triggered SubSystem: '<S102>/Subsystem7' */
+%closefile Terminate_open_Subsystem7_86_308
+
+%assign    Terminate_body_Subsystem7_86_308 = ""
+%openfile  Terminate_body_Subsystem7_86_308
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS5B0)
+/* Terminate for S-Function (CAN_TxData): '<S124>/Send CAN Data' */
+%<SLibCG_DumpSSCode("/*@[186cdf*/",tlcTerminateFcnOfS5B0,"/*@]*/")>\
+%endif
+%closefile Terminate_body_Subsystem7_86_308
+
+%assign    Terminate_close_Subsystem7_86_308 = ""
+%openfile  Terminate_close_Subsystem7_86_308
+
+/* End of Terminate for SubSystem: '<S102>/Subsystem7' */
+%closefile Terminate_close_Subsystem7_86_308
+%<SLibCG_DumpSSCode(Terminate_open_Subsystem7_86_308, Terminate_body_Subsystem7_86_308, Terminate_close_Subsystem7_86_308)>
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B155)
+
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S436>/Send CAN Message 2' incorporates:
+ *  Constant: '<S436>/Read Calibration1'
+ *  Constant: '<S436>/Read Calibration19'
+ */
+%<SLibCG_DumpSSCode("/*@[186ce5*/",tlcTerminateFcnOfS86B155,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B156)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S438>/Send CAN Message 1' */
+%<SLibCG_DumpSSCode("/*@[186ce8*/",tlcTerminateFcnOfS86B156,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B157)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S440>/Send CAN Message ' incorporates:
+ *  Constant: '<S440>/Constant'
+ */
+%<SLibCG_DumpSSCode("/*@[186cec*/",tlcTerminateFcnOfS86B157,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B158)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S440>/Send CAN Message 1' incorporates:
+ *  Constant: '<S440>/Constant1'
+ *  Constant: '<S440>/Constant2'
+ */
+%<SLibCG_DumpSSCode("/*@[186cf5*/",tlcTerminateFcnOfS86B158,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B159)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S440>/Send CAN Message 2' incorporates:
+ *  Constant: '<S440>/Constant5'
+ *  Constant: '<S440>/Constant6'
+ */
+%<SLibCG_DumpSSCode("/*@[186cfe*/",tlcTerminateFcnOfS86B159,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B160)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S440>/Send CAN Message 3' */
+%<SLibCG_DumpSSCode("/*@[186d01*/",tlcTerminateFcnOfS86B160,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B161)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S440>/Send CAN Message 4' incorporates:
+ *  Constant: '<S440>/Constant3'
+ */
+%<SLibCG_DumpSSCode("/*@[186d10*/",tlcTerminateFcnOfS86B161,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B162)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S442>/Send CAN Message 1' */
+%<SLibCG_DumpSSCode("/*@[186d12*/",tlcTerminateFcnOfS86B162,"/*@]*/")>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS86B163)
+/* Terminate for S-Function (ecodoer_sendMsg_float): '<S442>/Send CAN Message 2' incorporates:
+ *  Constant: '<S442>/Constant4'
+ */
+%<SLibCG_DumpSSCode("/*@[186d17*/",tlcTerminateFcnOfS86B163,"/*@]*/")>\
+%endif
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function TerminateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Terminate(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(3, 14, fcnProtoType)>
+%endfunction

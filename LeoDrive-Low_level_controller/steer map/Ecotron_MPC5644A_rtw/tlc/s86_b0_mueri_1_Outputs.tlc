@@ -1,0 +1,23 @@
+%implements s86_b0_mueri_1_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcOutputsFcnOfS30B2 = OpaqueTLCBlockFcn("Outputs", 30, 2, 1, 0, 0)
+%if !WHITE_SPACE(tlcOutputsFcnOfS30B2)
+/* S-Function (ecocoder_power_on): '<S412>/Power On' */
+%<SLibCG_DumpSSCode("/*@[de507*/",tlcOutputsFcnOfS30B2,"/*@]*/")>\
+%endif
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(1, 0, fcnProtoType)>
+%endfunction
