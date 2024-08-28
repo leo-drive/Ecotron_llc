@@ -1,0 +1,2 @@
+-L"../BSW" -lHCU_TC27xC
+-L"../src/ASW_Libs" -lECOCCP_Main

@@ -1,0 +1,125 @@
+V1.0.81  2022.08.08 EH2275A02
+1¡¢Modify Mcal_Ray_Init
+
+V1.0.80  2021.10.22
+1.Modify lsl
+2.Modify Flash.c/Flash.h
+
+V1.0.79  2021.9.2
+1.Add SCI single byte reception
+
+V1.0.78  2021.8.25
+1.Add SCI serial port reception
+
+V1.0.77  2020.05.20
+ 1.Update CAN.c 
+
+V1.0.76  2020.05.09
+ 1.Update CAN.c 
+
+V1.0.75  2020.05.07
+ 1.Update ATOM.C,.H
+ 2.Update TIM.C,.H
+ 3.Update Abstraction_IPWM.c,.h£¬Abstraction_OPWM.h
+ 4.Update HLSO.C,.H 
+
+V1.0.73M2  2020.01.18 hxl
+ 1.Add LIN and CANFD
+ 2.Update Cpu0_Main.c ,remove ASW_Schedule_Init
+ 3.Update F_Abstr_CAN_RxLiveCounter in Abstraction_CAN.c
+ 4.Delate LIN.c and LIN.h 
+
+V1.0.73  2019.12.13 zxn
+ 1.MOdify NVM.c
+ 2.modify OS_Main.h
+
+V1.0.72  2019.12.06 hxl
+ 1.Update Lcf_Gnuc.lsl,the calibration area is expanded to 64K, the monitoring area is expanded to 80K-0x200, and the monitoring area of the ADC is modified.
+ 2.Update FlexRay.h with adding FlexRay_WriteDataByIndex and FlexRay_ReadDataByIndex functions.
+ 3.Update MCAL_RAY.h with adding Mcal_Ray_WriteDataByIndex and Mcal_Ray_ReadDataByIndex functions.
+
+V1.0.71 2019.11.26
+1.modify CAN.c
+2.add hal_version.h
+3.modify IO_cfg.c/.h
+4.modify ATOM.c/.h
+5.modify TLF35584.c
+6.modify MCAL_RAY.c
+7.modify FlexRay.c/.h
+8.modify Abstraction_ADC.h
+
+
+V1.0.70 2019.8.6
+1.modify NVMEM.c/.h
+2.modify QSPI.c
+
+
+V1.0.68 2019.7.27
+1.Update Lcf_Gnuc.lsl,add .__epk_data section and epk_data MEMORY
+2.pragma.h,add START_ADDR_EPK and STOP_ADDR_EPK
+3.NVM.c/h
+4.abstraction_sys.h
+
+V1.0.67 2019.7.19
+1.FlexRay.c/.h
+2.MCAL_RAY.c/.h
+
+V1.0.66 2019.7.16
+1.IfxEray.c
+2.MCAL_RAY.c
+
+V1.0.65 2019.6.5
+1.Lcf_Gnuc.lsl
+
+V1.0.64 2019.5.31
+1.NVM.C
+
+V1.0.63 2019.5.24
+1.Flash.C
+2.Flash.h
+
+V1.0.62 2019.5.23
+1.NVM.C
+
+V1.0.61 2019.5.22
+Lcf_Gnuc.lsl
+
+V1.0.60 2019.5.22
+1¡¢Abstraction_Sys.h
+1¡¢Abstraction_CAN.h
+
+V1.0.59 2019.5.21
+1¡¢NVM.C
+2¡¢SCU.C
+3¡¢Abstraction_Sys.h
+4¡¢Ifx_Cfg_Trap.h
+
+V1.0.58 2019.4.4
+1¡¢Tim.c
+
+V1.0.57 2019.3.26
+1¡¢Cpu0_Main.c
+
+V1.0.56 2019.3.25
+1¡¢Add NVM¡¢level3¡¢TIM....
+
+V1.0.54_M7
+1¡¢HXL£¬Abstraction_Sys.h
+
+V1.0.54M6 20181228
+  Modify the fault code table for BTT6200
+
+V1.0.54M5 20181227
+  Modify the fault code table for BTT6200
+
+V1.0.54M4 20181227
+  add Abstraction file to bws
+  Modify the threshold for BTT6200
+
+V1.0.54M3 20181215
+  Update Abstraction_HLSO.h and Abstraction_Sys.h for DTC 
+
+V1.0.54M2 20180911
+   Update Lcf_Gnuc.lsl
+
+V1.0.54M1 20180820
